@@ -1,0 +1,391 @@
+/* ==========================================================================
+   MORRO'S STARBOUND WORKSHOP — THEME & DESIGN TOKENS
+   Track 2 HAX Baby Hackathon Design System
+   ========================================================================== */
+
+:root {
+  /* Celestial Day (Default) */
+  --bg-primary: #FFFDF9;
+  --bg-secondary: #F4F8FE;
+  --bg-surface: #FFFFFF;
+  --bg-surface-glass: rgba(255, 255, 255, 0.85);
+  --bg-card: #FFFFFF;
+  --bg-card-subtle: #F0F6FF;
+  --bg-accent-pill: #FEF3C7;
+
+  /* Typography Colors */
+  --text-main: #0F172A;
+  --text-muted: #475569;
+  --text-light: #64748B;
+  --text-inverse: #FFFFFF;
+
+  /* Brand Colors */
+  --royal-blue: #1D4ED8;
+  --royal-blue-hover: #1E40AF;
+  --royal-blue-subtle: rgba(29, 78, 216, 0.08);
+  --celestial-blue: #0284C7;
+  --celestial-soft: #E0F2FE;
+  --celestial-glow: rgba(56, 189, 248, 0.35);
+
+  --starlight-gold: #D97706;
+  --starlight-gold-light: #FDE68A;
+  --starlight-gold-bg: #FFFBEB;
+  --starlight-glow: rgba(245, 158, 11, 0.3);
+
+  --dream-pink: #FCE7F3;
+  --dream-pink-text: #BE185D;
+  --lavender-tint: #F3E8FF;
+  --mint-tint: #D1FAE5;
+  --mint-text: #047857;
+
+  /* Borders & Shadows */
+  --border-subtle: 1.5px solid rgba(29, 78, 216, 0.12);
+  --border-card: 1.5px solid #E2E8F0;
+  --border-gold: 2px solid rgba(217, 119, 6, 0.35);
+  --border-royal: 2px solid #1D4ED8;
+
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 8px 24px rgba(29, 78, 216, 0.08);
+  --shadow-lg: 0 16px 36px rgba(29, 78, 216, 0.12);
+  --shadow-gold: 0 0 24px rgba(245, 158, 11, 0.28);
+  --shadow-glow: 0 0 30px rgba(56, 189, 248, 0.25);
+
+  /* Border Radii */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Cosmic Night / Starlit Twilight Mode */
+[data-theme="night"] {
+  --bg-primary: #0A0E24;
+  --bg-secondary: #0F1633;
+  --bg-surface: #151F42;
+  --bg-surface-glass: rgba(21, 31, 66, 0.88);
+  --bg-card: #18244D;
+  --bg-card-subtle: #1F2E5E;
+  --bg-accent-pill: rgba(56, 189, 248, 0.16);
+
+  --text-main: #F8FAFC;
+  --text-muted: #CBD5E1;
+  --text-light: #94A3B8;
+  --text-inverse: #0A0E24;
+
+  --royal-blue: #60A5FA;
+  --royal-blue-hover: #93C5FD;
+  --royal-blue-subtle: rgba(96, 165, 250, 0.18);
+  --celestial-blue: #38BDF8;
+  --celestial-soft: rgba(56, 189, 248, 0.18);
+  --celestial-glow: rgba(56, 189, 248, 0.5);
+
+  --starlight-gold: #FBBF24;
+  --starlight-gold-light: #FDE68A;
+  --starlight-gold-bg: rgba(245, 158, 11, 0.16);
+  --starlight-glow: rgba(251, 191, 36, 0.45);
+
+  --dream-pink: rgba(244, 114, 182, 0.18);
+  --dream-pink-text: #F472B6;
+  --lavender-tint: rgba(192, 132, 252, 0.18);
+  --mint-tint: rgba(52, 211, 153, 0.18);
+  --mint-text: #6EE7B7;
+
+  --border-subtle: 1.5px solid rgba(148, 163, 184, 0.22);
+  --border-card: 1.5px solid rgba(56, 189, 248, 0.25);
+  --border-gold: 2px solid rgba(251, 191, 36, 0.55);
+  --border-royal: 2px solid #60A5FA;
+
+  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.55), 0 0 18px rgba(56, 189, 248, 0.12);
+  --shadow-lg: 0 18px 45px rgba(0, 0, 0, 0.7), 0 0 25px rgba(56, 189, 248, 0.16);
+  --shadow-gold: 0 0 28px rgba(245, 158, 11, 0.38);
+  --shadow-glow: 0 0 35px rgba(56, 189, 248, 0.4);
+}
+
+/* Cosmic Ambient Starlight Nebula for Dark Mode */
+[data-theme="night"] body {
+  background-color: #0A0E24;
+  background-image: 
+    radial-gradient(ellipse at 15% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 20%, rgba(245, 158, 11, 0.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 75%, rgba(139, 92, 246, 0.08) 0%, transparent 60%);
+  background-attachment: fixed;
+}
+
+/* ==========================================================================
+   DEFAULT THEME: WHIMSICAL RETRO CELESTIAL BACKGROUND & PERSONALITY
+   Small, lightweight, and impressive micro-constellation stardust graphics
+   ========================================================================== */
+body,
+body.chaos-mode {
+  --bg-primary: #FFF4F8;
+  --bg-secondary: transparent;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23F59E0B'><polygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/></svg>"), auto !important;
+  transition: background-color 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  background-color: #FFF4F8 !important;
+}
+
+[data-theme="night"] body,
+[data-theme="night"] body.chaos-mode {
+  --bg-primary: #07091B;
+  --bg-secondary: transparent;
+  background-color: #07091B !important;
+}
+
+/* Full-Website Fixed Background Graphics Layer */
+body::before,
+body.chaos-mode::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background-color: #FFF6F9;
+  background-image: 
+    /* Small, Lightweight & Impressive SVG Celestial Micro-Constellation Pattern */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cpath d='M 18 12 Q 18 17 13 17 Q 18 17 18 22 Q 18 17 23 17 Q 18 17 18 12 Z' fill='%23F59E0B' opacity='0.75'/%3E%3Ccircle cx='18' cy='17' r='1' fill='%23FFFBEB' opacity='0.9'/%3E%3Cpolygon points='54,46 57,50 54,54 51,50' fill='%23EC4899' opacity='0.65'/%3E%3Cpath d='M 56 16 L 56 22 M 53 19 L 59 19' stroke='%230284C7' stroke-width='1.5' stroke-linecap='round' opacity='0.6'/%3E%3Cpolygon points='22,55 23.5,58 26.5,58 24,60 25,63 22,61 19,63 20,60 17.5,58 20.5,58' fill='%238B5CF6' opacity='0.55'/%3E%3Ccircle cx='36' cy='32' r='1.2' fill='%23F59E0B' opacity='0.5'/%3E%3Ccircle cx='64' cy='36' r='1' fill='%23EC4899' opacity='0.45'/%3E%3Ccircle cx='10' cy='38' r='1' fill='%230284C7' opacity='0.45'/%3E%3Ccircle cx='40' cy='62' r='1.2' fill='%238B5CF6' opacity='0.45'/%3E%3Ccircle cx='38' cy='10' r='1' fill='%230284C7' opacity='0.45'/%3E%3Cline x1='18' y1='17' x2='36' y2='32' stroke='%23F59E0B' stroke-width='0.6' stroke-dasharray='1.5,3' opacity='0.28'/%3E%3Cline x1='36' y1='32' x2='54' y2='50' stroke='%23EC4899' stroke-width='0.6' stroke-dasharray='1.5,3' opacity='0.22'/%3E%3C/svg%3E"),
+    /* Soft Atmospheric Starlight Glow Washes */
+    radial-gradient(circle at 15% 15%, rgba(245, 158, 11, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 85% 25%, rgba(56, 189, 248, 0.14) 0%, transparent 45%),
+    radial-gradient(circle at 50% 60%, rgba(236, 72, 153, 0.1) 0%, transparent 45%),
+    radial-gradient(circle at 15% 85%, rgba(139, 92, 246, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 85% 90%, rgba(245, 158, 11, 0.12) 0%, transparent 40%);
+  background-size: 72px 72px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+  background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  animation: chaosBgDrift 70s linear infinite;
+  opacity: 1;
+}
+
+[data-theme="night"] body::before,
+[data-theme="night"] body.chaos-mode::before {
+  background-color: #07091B;
+  background-image: 
+    /* Small, Lightweight & Impressive Neon Celestial Micro-Constellation Pattern */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cpath d='M 18 12 Q 18 17 13 17 Q 18 17 18 22 Q 18 17 23 17 Q 18 17 18 12 Z' fill='%23FBBF24' opacity='0.85'/%3E%3Ccircle cx='18' cy='17' r='1' fill='%23FFFFFF' opacity='0.95'/%3E%3Cpolygon points='54,46 57,50 54,54 51,50' fill='%23F472B6' opacity='0.8'/%3E%3Cpath d='M 56 16 L 56 22 M 53 19 L 59 19' stroke='%2338BDF8' stroke-width='1.5' stroke-linecap='round' opacity='0.75'/%3E%3Cpolygon points='22,55 23.5,58 26.5,58 24,60 25,63 22,61 19,63 20,60 17.5,58 20.5,58' fill='%23C084FC' opacity='0.7'/%3E%3Ccircle cx='36' cy='32' r='1.2' fill='%23FBBF24' opacity='0.65'/%3E%3Ccircle cx='64' cy='36' r='1' fill='%23F472B6' opacity='0.6'/%3E%3Ccircle cx='10' cy='38' r='1' fill='%2338BDF8' opacity='0.6'/%3E%3Ccircle cx='40' cy='62' r='1.2' fill='%23C084FC' opacity='0.6'/%3E%3Ccircle cx='38' cy='10' r='1' fill='%2338BDF8' opacity='0.6'/%3E%3Cline x1='18' y1='17' x2='36' y2='32' stroke='%23FBBF24' stroke-width='0.6' stroke-dasharray='1.5,3' opacity='0.35'/%3E%3Cline x1='36' y1='32' x2='54' y2='50' stroke='%23F472B6' stroke-width='0.6' stroke-dasharray='1.5,3' opacity='0.3'/%3E%3C/svg%3E"),
+    /* Deep Neon Cosmic Space Glow Washes */
+    radial-gradient(circle at 15% 15%, rgba(251, 191, 36, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 85% 25%, rgba(56, 189, 248, 0.14) 0%, transparent 45%),
+    radial-gradient(circle at 50% 60%, rgba(244, 114, 182, 0.1) 0%, transparent 45%),
+    radial-gradient(circle at 15% 85%, rgba(192, 132, 252, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 85% 90%, rgba(56, 189, 248, 0.12) 0%, transparent 40%);
+}
+
+@keyframes chaosBgDrift {
+  0% {
+    background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+  }
+  100% {
+    background-position: 72px 72px, 0 0, 0 0, 0 0, 0 0, 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body.chaos-mode::before {
+    animation: none !important;
+  }
+}
+
+/* Ensure the background graphics are visible across the ENTIRE website */
+body .app-celestial-root,
+body.chaos-mode .app-celestial-root {
+  position: relative;
+  z-index: 1;
+}
+
+body main,
+body section,
+body #hero,
+body .hero-section,
+body .character-sheet-section,
+body .origin-story-section,
+body .ritual-section,
+body .live-guestbook-section,
+body.chaos-mode main,
+body.chaos-mode section,
+body.chaos-mode #hero,
+body.chaos-mode .hero-section,
+body.chaos-mode .character-sheet-section,
+body.chaos-mode .origin-story-section,
+body.chaos-mode .ritual-section,
+body.chaos-mode .live-guestbook-section {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+/* Subtle border tinting so sections blend into the continuous background */
+body .character-sheet-section,
+body .ritual-section,
+body .live-guestbook-section,
+body.chaos-mode .character-sheet-section,
+body.chaos-mode .ritual-section,
+body.chaos-mode .live-guestbook-section {
+  border-color: rgba(245, 158, 11, 0.3) !important;
+}
+
+/* Retro Personality Accents & Hard 90s Offset Shadows */
+body .character-sheet-card,
+body .ritual-altar-card,
+body .ritual-container,
+body .project-card,
+body .guestbook-form-card,
+body .guestbook-stream-card,
+body .guestbook-container,
+body .origin-storybook-chronicle-card,
+body .cosmic-story-step-item,
+body .hero-baby-name-banner,
+body.chaos-mode .character-sheet-card,
+body.chaos-mode .ritual-altar-card,
+body.chaos-mode .ritual-container,
+body.chaos-mode .project-card,
+body.chaos-mode .guestbook-form-card,
+body.chaos-mode .guestbook-stream-card,
+body.chaos-mode .guestbook-container,
+body.chaos-mode .origin-storybook-chronicle-card,
+body.chaos-mode .cosmic-story-step-item,
+body.chaos-mode .hero-baby-name-banner {
+  border: 3px dashed var(--starlight-gold) !important;
+  box-shadow: 6px 6px 0px #1E4ED8 !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body .section-header,
+body.chaos-mode .section-header {
+  border: 3px dashed var(--starlight-gold) !important;
+  box-shadow: 6px 6px 0px #1E4ED8 !important;
+  background: rgba(255, 255, 255, 0.96) !important;
+}
+
+[data-theme="night"] body .section-header,
+[data-theme="night"] body.chaos-mode .section-header {
+  background: rgba(15, 23, 42, 0.94) !important;
+  border-color: #FBBF24 !important;
+  box-shadow: 6px 6px 0px #38BDF8 !important;
+}
+
+body .character-sheet-card:hover,
+body .ritual-altar-card:hover,
+body .guestbook-form-card:hover,
+body .guestbook-stream-card:hover,
+body .origin-storybook-chronicle-card:hover,
+body .cosmic-story-step-item:hover,
+body .project-card:hover,
+body.chaos-mode .character-sheet-card:hover,
+body.chaos-mode .ritual-altar-card:hover,
+body.chaos-mode .guestbook-form-card:hover,
+body.chaos-mode .guestbook-stream-card:hover,
+body.chaos-mode .origin-storybook-chronicle-card:hover,
+body.chaos-mode .cosmic-story-step-item:hover,
+body.chaos-mode .project-card:hover {
+  transform: translateY(-4px) rotate(1deg) scale(1.02) !important;
+  box-shadow: 9px 9px 0px #EC4899 !important;
+}
+
+/* Staggered Retro Rotation */
+body.chaos-mode .project-card:nth-child(odd) {
+  transform: rotate(-1.2deg);
+}
+body.chaos-mode .project-card:nth-child(even) {
+  transform: rotate(1.2deg);
+}
+
+/* Dimension Reshaping 1: Tall / Mobile Screens (Scrapbook Diary Mode) */
+@media (max-aspect-ratio: 4/5), (max-width: 680px) {
+  body.chaos-mode .hero-baby-name-banner {
+    transform: rotate(-2deg) scale(0.96);
+    box-shadow: 4px 4px 0px #EC4899 !important;
+  }
+
+  body.chaos-mode .character-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem;
+  }
+
+  body.chaos-mode .projects-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.chaos-mode .project-card {
+    transform: rotate(0.8deg);
+  }
+}
+
+/* Dimension Reshaping 2: Ultra-Wide / Panoramic Screens (Retro Arcade Dashboard Mode) */
+@media (min-width: 1200px) and (min-aspect-ratio: 16/10) {
+  body.chaos-mode .hero-baby-name-banner {
+    transform: rotate(1.5deg) scale(1.02);
+    box-shadow: 8px 8px 0px #7E22CE !important;
+  }
+
+  body.chaos-mode .projects-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 2rem;
+  }
+
+  body.chaos-mode .character-sheet-card {
+    border-radius: 36px 8px 36px 8px !important;
+    transform: perspective(800px) rotateY(-1deg);
+  }
+
+  body.chaos-mode .ritual-container {
+    border-radius: 8px 36px 8px 36px !important;
+    transform: perspective(800px) rotateY(1deg);
+  }
+}
+
+/* Keyframe Animations */
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1.5deg); }
+}
+
+@keyframes sparkyBob {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-12px) scale(1.05) rotate(-3deg); }
+}
+
+@keyframes cloudDrift {
+  0%, 100% { transform: translateX(0px) translateY(0px); }
+  50% { transform: translateX(10px) translateY(-6px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.4)); }
+  50% { filter: drop-shadow(0 0 20px rgba(245, 158, 11, 0.7)); }
+}
+
+@keyframes twinkleStar {
+  0%, 100% { opacity: 0.3; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.15) rotate(45deg); }
+}
+
+@keyframes absorbToPouch {
+  0% { transform: scale(1) translate(0, 0); opacity: 1; }
+  60% { transform: scale(0.5) translate(80px, -40px); opacity: 0.8; filter: hue-rotate(180deg); }
+  100% { transform: scale(0.1) translate(140px, -20px); opacity: 0; }
+}
+
+@keyframes ribbonShine {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

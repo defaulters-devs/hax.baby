@@ -1,0 +1,523 @@
+/* ==========================================================================
+   CELESTIAL FOOTER — COLORFUL, COZY & CUTE STORYBOOK FOOTER
+   ========================================================================== */
+
+.celestial-footer {
+  position: relative;
+  background: linear-gradient(180deg, #F8FAFC 0%, #EFF6FF 50%, #FDF2F8 100%);
+  border-top: 3px solid var(--starlight-gold);
+  padding: 3rem 0 2.5rem;
+  margin-top: 3rem;
+  overflow: hidden;
+}
+
+[data-theme="night"] .celestial-footer {
+  background: linear-gradient(180deg, #0B1124 0%, #070B19 50%, #110B22 100%);
+  border-top-color: #F59E0B;
+}
+
+/* Decorative Wave Divider */
+.footer-wave-divider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  pointer-events: none;
+  opacity: 0.25;
+}
+
+.footer-wave-divider svg {
+  display: block;
+  width: 100%;
+  height: 40px;
+}
+
+.footer-wave-path {
+  fill: var(--starlight-gold);
+}
+
+.footer-inner-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* --------------------------------------------------------------------------
+   Cozy Hero Showcase Card
+   -------------------------------------------------------------------------- */
+.footer-hero-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 2px solid rgba(245, 158, 11, 0.35);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  align-items: flex-start;
+  margin-bottom: 2.25rem;
+  text-align: left;
+  box-shadow: 0 10px 30px rgba(245, 158, 11, 0.12), 0 4px 12px rgba(29, 78, 216, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all var(--transition-normal);
+}
+
+[data-theme="night"] .footer-hero-card {
+  background: rgba(18, 26, 62, 0.88);
+  border-color: rgba(245, 158, 11, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.footer-hero-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(245, 158, 11, 0.18);
+}
+
+@media (min-width: 860px) {
+  .footer-hero-card {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.footer-hero-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.footer-avatar-wrap {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+  border: 2px solid #F59E0B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.3);
+  animation: floatGentle 3s infinite ease-in-out;
+  flex-shrink: 0;
+}
+
+.footer-avatar-star {
+  font-size: 2.2rem;
+  filter: drop-shadow(0 2px 4px rgba(245, 158, 11, 0.4));
+}
+
+.footer-avatar-sparky {
+  position: absolute;
+  bottom: -6px;
+  right: -6px;
+  font-size: 1.15rem;
+  background: #E0F2FE;
+  border: 1.5px solid #38BDF8;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(56, 189, 248, 0.4);
+}
+
+.footer-title-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.footer-name-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #B45309;
+}
+
+.footer-badge-dot {
+  color: #F59E0B;
+  animation: twinkleStar 2s infinite ease-in-out;
+}
+
+.footer-brand-title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  background: linear-gradient(135deg, var(--royal-blue) 0%, #0284C7 60%, #D97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.footer-brand-tagline {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--starlight-gold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.footer-motto-bubble {
+  position: relative;
+  background: linear-gradient(135deg, #FFFDF7 0%, #FEF3C7 100%);
+  border: 1.5px dashed rgba(245, 158, 11, 0.4);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.4rem;
+  max-width: 480px;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.08);
+}
+
+[data-theme="night"] .footer-motto-bubble {
+  background: rgba(30, 27, 75, 0.7);
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.bubble-quote-glyph {
+  position: absolute;
+  top: -12px;
+  left: 12px;
+  font-size: 2.2rem;
+  color: #F59E0B;
+  line-height: 1;
+  font-family: serif;
+}
+
+.bubble-quote-text {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin: 0 0 0.4rem 0;
+  font-style: italic;
+}
+
+.bubble-author-sign {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--royal-blue);
+  text-align: right;
+}
+
+/* --------------------------------------------------------------------------
+   3 Colorful & Cozy Storybook Cards
+   -------------------------------------------------------------------------- */
+.footer-storybook-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  text-align: left;
+}
+
+@media (min-width: 820px) {
+  .footer-storybook-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.storybook-footer-card {
+  border-radius: var(--radius-lg);
+  padding: 1.6rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+}
+
+.storybook-footer-card:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* Card 1: Pastel Rose / Peach */
+.card-rose {
+  background: linear-gradient(135deg, #FFF5F7 0%, #FCE7F3 100%);
+  border: 1.5px solid rgba(244, 114, 182, 0.35);
+}
+
+[data-theme="night"] .card-rose {
+  background: linear-gradient(135deg, rgba(80, 7, 36, 0.6) 0%, rgba(45, 10, 30, 0.7) 100%);
+  border-color: rgba(244, 114, 182, 0.3);
+}
+
+.card-rose:hover {
+  box-shadow: 0 12px 28px rgba(236, 72, 153, 0.18);
+  border-color: #EC4899;
+}
+
+.bg-rose-icon {
+  background: linear-gradient(135deg, #F472B6 0%, #DB2777 100%);
+  color: #FFFFFF;
+}
+
+/* Card 2: Pastel Celestial Blue */
+.card-blue {
+  background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 100%);
+  border: 1.5px solid rgba(56, 189, 248, 0.35);
+}
+
+[data-theme="night"] .card-blue {
+  background: linear-gradient(135deg, rgba(8, 47, 73, 0.6) 0%, rgba(12, 35, 64, 0.7) 100%);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.card-blue:hover {
+  box-shadow: 0 12px 28px rgba(2, 132, 199, 0.18);
+  border-color: #0284C7;
+}
+
+.bg-blue-icon {
+  background: linear-gradient(135deg, #38BDF8 0%, #0284C7 100%);
+  color: #FFFFFF;
+}
+
+/* Card 3: Pastel Buttercup Gold */
+.card-gold {
+  background: linear-gradient(135deg, #FFFDF5 0%, #FEF3C7 100%);
+  border: 1.5px solid rgba(245, 158, 11, 0.35);
+}
+
+[data-theme="night"] .card-gold {
+  background: linear-gradient(135deg, rgba(69, 26, 3, 0.6) 0%, rgba(45, 20, 5, 0.7) 100%);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.card-gold:hover {
+  box-shadow: 0 12px 28px rgba(245, 158, 11, 0.2);
+  border-color: #F59E0B;
+}
+
+.bg-gold-icon {
+  background: linear-gradient(135deg, #FBBF24 0%, #D97706 100%);
+  color: #FFFFFF;
+}
+
+/* Card Header */
+.card-header-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 0.85rem;
+}
+
+.card-cute-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.card-micro-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-light);
+  display: block;
+}
+
+.card-main-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.card-body-text {
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin-bottom: 1.15rem;
+  flex-grow: 1;
+}
+
+/* Cute Tag Badges */
+.card-pill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: auto;
+}
+
+.cute-tag {
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.tag-pink {
+  background: #FDF2F8;
+  color: #BE185D;
+  border: 1px solid rgba(244, 114, 182, 0.4);
+}
+
+.tag-gold {
+  background: #FFFBEB;
+  color: #B45309;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+}
+
+.tag-purple {
+  background: #F5F3FF;
+  color: #6D28D9;
+  border: 1px solid rgba(167, 139, 250, 0.4);
+}
+
+.tag-blue {
+  background: #EFF6FF;
+  color: #1D4ED8;
+  border: 1px solid rgba(96, 165, 250, 0.4);
+}
+
+.tag-cyan {
+  background: #ECFEFF;
+  color: #0E7490;
+  border: 1px solid rgba(34, 211, 238, 0.4);
+}
+
+.tag-green {
+  background: #ECFDF5;
+  color: #047857;
+  border: 1px solid rgba(52, 211, 153, 0.4);
+}
+
+/* Realm Navigation Jump Pills */
+.footer-nav-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: auto;
+}
+
+.footer-nav-jump {
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background: var(--bg-surface);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #B45309;
+  cursor: pointer;
+  transition: all var(--transition-bounce);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+}
+
+.footer-nav-jump:hover {
+  background: #F59E0B;
+  color: #FFFFFF;
+  border-color: #D97706;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
+}
+
+/* --------------------------------------------------------------------------
+   Bottom Bar with Rocket to Top
+   -------------------------------------------------------------------------- */
+.footer-bottom-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.75rem;
+  border-top: 1.5px dashed rgba(29, 78, 216, 0.15);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer-bottom-bar {
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
+.copyright-love {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  margin: 0 0 0.5rem 0;
+}
+
+.highlight-hax {
+  font-weight: 700;
+  color: var(--royal-blue);
+}
+
+.footer-trust-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .footer-trust-chips {
+    justify-content: flex-start;
+  }
+}
+
+.trust-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  background: rgba(29, 78, 216, 0.06);
+  border: 1px solid rgba(29, 78, 216, 0.12);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Rocket Back to Top Button */
+.footer-rocket-top-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, var(--royal-blue) 0%, var(--celestial-blue) 100%);
+  color: #FFFFFF;
+  border: none;
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 16px rgba(29, 78, 216, 0.25);
+  cursor: pointer;
+  transition: all var(--transition-bounce);
+  flex-shrink: 0;
+}
+
+.footer-rocket-top-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 24px rgba(29, 78, 216, 0.4);
+}
+
+.footer-rocket-top-btn:hover .rocket-icon {
+  display: inline-block;
+  animation: rocketWobble 0.6s infinite alternate ease-in-out;
+}
+
+@keyframes rocketWobble {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-4px) rotate(-12deg); }
+}

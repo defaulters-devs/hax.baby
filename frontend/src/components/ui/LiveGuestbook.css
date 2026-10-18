@@ -1,0 +1,937 @@
+/* ==========================================================================
+   LIVE GUESTBOOK — INTERACTIVE STARLIGHT GUESTBOOK & SKY CONSTELLATION
+   ========================================================================== */
+
+.live-guestbook-section {
+  padding: 4.5rem 0;
+  background: var(--bg-secondary);
+  border-top: var(--border-subtle);
+  position: relative;
+  overflow: hidden;
+}
+
+.guestbook-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 960px) {
+  .guestbook-layout-grid {
+    grid-template-columns: 460px 1fr;
+    gap: clamp(2rem, 3.5vw, 3.5rem);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Floating Starlight Particle Animations (+1 ⭐)
+   -------------------------------------------------------------------------- */
+.guestbook-floating-reaction {
+  position: fixed;
+  z-index: 100000;
+  pointer-events: none;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 800;
+  color: #F59E0B;
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.8), 0 2px 4px rgba(0, 0, 0, 0.2);
+  transform: translate(-50%, -50%);
+  animation: floatUpAndFade 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes floatUpAndFade {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -90px) scale(1.25);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -140px) scale(1);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Leave a Wish Form Card
+   -------------------------------------------------------------------------- */
+.guestbook-form-card {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+  position: relative;
+  transition: all var(--transition-normal);
+}
+
+.guestbook-form-card:hover {
+  border-color: rgba(245, 158, 11, 0.4);
+  box-shadow: 0 8px 30px rgba(29, 78, 216, 0.08);
+}
+
+.form-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+.form-card-header h3 {
+  font-size: 1.35rem;
+  color: var(--text-main);
+  font-weight: 700;
+}
+
+.live-online-chip {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #059669;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 6px #10B981;
+  animation: pulseGentle 1.8s infinite;
+}
+
+/* Quick Dream Sparks */
+.quick-sparks-container {
+  margin-bottom: 1.15rem;
+  padding: 0.75rem;
+  background: var(--bg-card-subtle);
+  border-radius: var(--radius-md);
+  border: 1px dashed rgba(29, 78, 216, 0.15);
+}
+
+.quick-sparks-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-light);
+  margin-bottom: 0.45rem;
+}
+
+.quick-sparks-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.quick-spark-pill {
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background: var(--bg-surface);
+  border: 1px solid rgba(29, 78, 216, 0.12);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--royal-blue);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.quick-spark-pill:hover {
+  background: #FEF3C7;
+  border-color: #F59E0B;
+  color: #B45309;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 3px 8px rgba(245, 158, 11, 0.2);
+}
+
+.guestbook-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: var(--border-subtle);
+  background: var(--bg-card-subtle);
+  color: var(--text-main);
+  font-family: inherit;
+  transition: all var(--transition-fast);
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--starlight-gold);
+  background: var(--bg-surface);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.25);
+  outline: none;
+}
+
+/* Live Character Mood & Character Counter */
+.char-count-mood {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  margin-top: 0.2rem;
+  padding: 0 0.2rem;
+}
+
+.mood-text {
+  font-weight: 600;
+  color: var(--starlight-gold);
+}
+
+.char-counter {
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+.char-counter.near-limit {
+  color: #EF4444;
+  font-weight: 700;
+}
+
+/* Stamp Picker */
+.stamp-picker-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.45rem;
+}
+
+.stamps-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.stamp-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card-subtle);
+  border: 1.5px solid var(--border-subtle);
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-bounce);
+}
+
+.stamp-btn:hover {
+  transform: translateY(-3px) scale(1.1);
+  background: var(--celestial-soft);
+  border-color: var(--celestial-blue);
+}
+
+.stamp-btn.selected {
+  border: 2px solid var(--starlight-gold);
+  background: var(--starlight-gold-bg);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+  transform: scale(1.15) rotate(3deg);
+}
+
+.form-error-alert {
+  font-size: 0.82rem;
+  color: #DC2626;
+  background: #FEF2F2;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  border-left: 3px solid #EF4444;
+}
+
+.form-success-alert {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: #065F46;
+  background: #D1FAE5;
+  padding: 0.55rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  border-left: 3px solid #10B981;
+  animation: pulseGentle 2s ease-in-out;
+}
+
+.guestbook-submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.9rem;
+  background: linear-gradient(135deg, var(--royal-blue) 0%, var(--celestial-blue) 100%);
+  color: white;
+  border: none;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 15px rgba(29, 78, 216, 0.3);
+  cursor: pointer;
+  transition: all var(--transition-bounce);
+  margin-top: 0.5rem;
+}
+
+.guestbook-submit-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(29, 78, 216, 0.45);
+}
+
+.guestbook-submit-btn:active {
+  transform: scale(0.98);
+}
+
+/* --------------------------------------------------------------------------
+   Stream of Wishes Card
+   -------------------------------------------------------------------------- */
+.guestbook-stream-card {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+.stream-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.15rem;
+  padding-bottom: 0.85rem;
+  border-bottom: var(--border-subtle);
+}
+
+.stream-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.stream-header-row h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.live-pulse-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+  animation: pulseGlow 1.5s infinite;
+}
+
+/* View Switcher: Cards vs Sky View */
+.view-mode-toggle {
+  display: inline-flex;
+  padding: 3px;
+  background: var(--bg-card-subtle);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-subtle);
+}
+
+.view-mode-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+  border: none;
+  background: transparent;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.view-mode-btn:hover {
+  color: var(--text-main);
+}
+
+.view-mode-btn.active {
+  background: var(--bg-surface);
+  color: var(--royal-blue);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Stamp Filter Bar */
+.wish-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1.15rem;
+}
+
+.filter-pill {
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-pill:hover {
+  background: var(--celestial-soft);
+  color: var(--royal-blue);
+}
+
+.filter-pill.active {
+  background: linear-gradient(135deg, var(--royal-blue) 0%, var(--celestial-blue) 100%);
+  color: #FFFFFF;
+  border-color: var(--royal-blue);
+  box-shadow: 0 2px 8px rgba(29, 78, 216, 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   Wishes Scroll List (Grid View)
+   -------------------------------------------------------------------------- */
+.wishes-scroll-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.95rem;
+  max-height: 520px;
+  overflow-y: auto;
+  padding-right: 0.35rem;
+}
+
+@media (min-width: 1200px) {
+  .wishes-scroll-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.1rem;
+  }
+}
+
+.empty-filter-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.wish-entry-bubble {
+  position: relative;
+  background: var(--bg-card-subtle);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.15rem 1.25rem;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.wish-entry-bubble:hover {
+  transform: translateY(-3px) scale(1.015);
+  box-shadow: 0 8px 24px rgba(29, 78, 216, 0.1);
+  border-color: rgba(245, 158, 11, 0.5);
+}
+
+.wish-corner-pin {
+  position: absolute;
+  top: -8px;
+  right: 14px;
+  font-size: 0.95rem;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.15));
+  transform: rotate(15deg);
+  pointer-events: none;
+}
+
+.wish-entry-bubble.new-arrival {
+  border-color: var(--starlight-gold);
+  background: var(--starlight-gold-bg);
+  animation: floatGentle 2s ease-in-out;
+}
+
+.wish-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+}
+
+.wish-stamp {
+  font-size: 1.3rem;
+  display: inline-block;
+  animation: floatGentle 3s infinite ease-in-out;
+}
+
+.wish-author {
+  font-family: var(--font-heading);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--royal-blue);
+}
+
+.wish-time {
+  margin-left: auto;
+  font-size: 0.72rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.wish-message {
+  font-size: 0.93rem;
+  color: var(--text-main);
+  line-height: 1.55;
+  margin-bottom: 0.85rem;
+  flex-grow: 1;
+}
+
+.wish-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 0.55rem;
+  border-top: 1px dashed rgba(29, 78, 216, 0.1);
+}
+
+/* Interactive Starlight Reaction Button */
+.wish-react-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background: var(--bg-surface);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #B45309;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.wish-react-btn:hover {
+  background: #FEF3C7;
+  border-color: #F59E0B;
+  transform: scale(1.08);
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+}
+
+.wish-react-btn:active {
+  transform: scale(0.92);
+}
+
+.react-count {
+  background: rgba(245, 158, 11, 0.15);
+  padding: 1px 6px;
+  border-radius: 8px;
+  font-size: 0.72rem;
+}
+
+.wish-blessing-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+/* --------------------------------------------------------------------------
+   View Mode 2: Interactive Starlight Constellation Sky View
+   -------------------------------------------------------------------------- */
+.guestbook-sky-stage {
+  position: relative;
+  width: 100%;
+  min-height: 480px;
+  border-radius: var(--radius-md);
+  background: radial-gradient(circle at 50% 50%, #0F172A 0%, #070B19 100%);
+  overflow: hidden;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.sky-canvas-backdrop {
+  position: relative;
+  width: 100%;
+  height: 480px;
+}
+
+.sky-moon-emblem {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  font-size: 2.5rem;
+  filter: drop-shadow(0 0 16px rgba(253, 224, 71, 0.6));
+  animation: floatGentle 4s infinite ease-in-out;
+  pointer-events: none;
+}
+
+.sky-hint-banner {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  padding: 0.3rem 0.9rem;
+  border-radius: var(--radius-pill);
+  color: #FDE68A;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Floating Star Nodes */
+.sky-star-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 5;
+}
+
+.sky-star-node:hover,
+.sky-star-node.active-star {
+  transform: translate(-50%, -50%) scale(1.25);
+  z-index: 20;
+}
+
+.star-orb-halo {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.4) 0%, rgba(245, 158, 11, 0.2) 60%, transparent 100%);
+  animation: pulseGlow 2.5s infinite;
+  pointer-events: none;
+}
+
+.star-orb-core {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+  border: 1.5px solid #FDE047;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.star-stamp-icon {
+  font-size: 1.05rem;
+}
+
+.star-author-label {
+  margin-top: 4px;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #BAE6FD;
+  background: rgba(15, 23, 42, 0.85);
+  padding: 1px 6px;
+  border-radius: 6px;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  white-space: nowrap;
+}
+
+.sky-star-node.active-star {
+  z-index: 40;
+}
+
+/* Interactive Popover Bubble */
+.sky-wish-popover {
+  --popover-tx: 0;
+  --popover-ty: 0;
+  position: absolute;
+  width: 250px;
+  max-width: min(260px, calc(100vw - 40px));
+  background: rgba(15, 23, 42, 0.95);
+  border: 1.5px solid #F59E0B;
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 16px rgba(245, 158, 11, 0.3);
+  color: #F8FAFC;
+  z-index: 50;
+  text-align: left;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transform: translate(var(--popover-tx), var(--popover-ty));
+  animation: popoverFadeIn 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: auto;
+}
+
+/* Directional vertical positioning */
+.sky-wish-popover.place-top {
+  bottom: calc(100% + 10px);
+  top: auto;
+}
+
+.sky-wish-popover.place-bottom {
+  top: calc(100% + 10px);
+  bottom: auto;
+}
+
+/* Directional horizontal positioning */
+.sky-wish-popover.align-center {
+  --popover-tx: -50%;
+  left: 50%;
+  right: auto;
+}
+
+.sky-wish-popover.align-left {
+  --popover-tx: 0;
+  left: -8px;
+  right: auto;
+}
+
+.sky-wish-popover.align-right {
+  --popover-tx: 0;
+  right: -8px;
+  left: auto;
+}
+
+@keyframes popoverFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(var(--popover-tx), var(--popover-ty)) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translate(var(--popover-tx), var(--popover-ty)) scale(1);
+  }
+}
+
+.popover-top {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.35rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+  padding-bottom: 0.35rem;
+}
+
+.popover-stamp {
+  font-size: 1.1rem;
+}
+
+.popover-author {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  color: #FDE047;
+}
+
+.popover-date {
+  margin-left: auto;
+  font-size: 0.68rem;
+  color: #94A3B8;
+}
+
+.popover-msg {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #E2E8F0;
+  margin-bottom: 0.65rem;
+}
+
+.popover-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.wish-react-btn.popover-react {
+  background: rgba(30, 41, 59, 0.8);
+  color: #FDE68A;
+  border-color: #F59E0B;
+}
+
+@media (max-width: 600px) {
+  .guestbook-form-card,
+  .guestbook-stream-card {
+    padding: 1.35rem 1.15rem;
+    border-radius: 18px;
+  }
+
+  .form-card-header h3 {
+    font-size: 1.15rem;
+  }
+
+  .stream-header-row h4 {
+    font-size: 1.05rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Cosmic Night / Dark Mode Specific Enhancements
+   -------------------------------------------------------------------------- */
+[data-theme="night"] .live-guestbook-section {
+  background: var(--bg-secondary);
+  border-color: rgba(56, 189, 248, 0.2);
+}
+
+[data-theme="night"] .guestbook-form-card,
+[data-theme="night"] .guestbook-stream-card {
+  background: var(--bg-surface);
+  border: 1.5px solid rgba(56, 189, 248, 0.25);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55);
+}
+
+[data-theme="night"] .guestbook-form-card:hover,
+[data-theme="night"] .guestbook-stream-card:hover {
+  border-color: rgba(251, 191, 36, 0.5);
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.6), 0 0 20px rgba(245, 158, 11, 0.15);
+}
+
+[data-theme="night"] .quick-sparks-container {
+  background: rgba(31, 46, 94, 0.6);
+  border-color: rgba(56, 189, 248, 0.25);
+}
+
+[data-theme="night"] .quick-spark-pill {
+  background: rgba(24, 36, 77, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #7DD3FC;
+}
+
+[data-theme="night"] .quick-spark-pill:hover {
+  background: rgba(245, 158, 11, 0.22);
+  border-color: #FBBF24;
+  color: #FDE68A;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.35);
+}
+
+[data-theme="night"] .form-group input,
+[data-theme="night"] .form-group textarea {
+  background: rgba(31, 46, 94, 0.7);
+  border: 1.5px solid rgba(56, 189, 248, 0.3);
+  color: #F8FAFC;
+}
+
+[data-theme="night"] .form-group input:focus,
+[data-theme="night"] .form-group textarea:focus {
+  background: rgba(31, 46, 94, 0.95);
+  border-color: #FBBF24;
+  box-shadow: 0 0 18px rgba(245, 158, 11, 0.3);
+}
+
+[data-theme="night"] .stamp-btn {
+  background: rgba(31, 46, 94, 0.7);
+  border: 1.5px solid rgba(148, 163, 184, 0.25);
+}
+
+[data-theme="night"] .stamp-btn:hover {
+  background: rgba(56, 189, 248, 0.25);
+  border-color: #38BDF8;
+}
+
+[data-theme="night"] .stamp-btn.selected {
+  background: rgba(245, 158, 11, 0.25);
+  border-color: #FBBF24;
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.4);
+}
+
+[data-theme="night"] .wish-entry-bubble {
+  background: rgba(24, 36, 77, 0.85);
+  border: 1.5px solid rgba(56, 189, 248, 0.25);
+}
+
+[data-theme="night"] .wish-entry-bubble:hover {
+  border-color: #FBBF24;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5), 0 0 18px rgba(245, 158, 11, 0.2);
+}
+
+[data-theme="night"] .wish-entry-bubble.new-arrival {
+  background: rgba(43, 33, 11, 0.7);
+  border-color: #FBBF24;
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+}
+
+[data-theme="night"] .filter-pill {
+  background: rgba(31, 46, 94, 0.7);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  color: #CBD5E1;
+}
+
+[data-theme="night"] .filter-pill:hover {
+  background: rgba(56, 189, 248, 0.2);
+  color: #38BDF8;
+}
+
+[data-theme="night"] .filter-pill.active {
+  background: linear-gradient(135deg, #2563EB 0%, #0284C7 100%);
+  color: #FFFFFF;
+  border-color: #38BDF8;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.35);
+}
+
+[data-theme="night"] .view-mode-btn.active {
+  background: rgba(31, 46, 94, 0.9);
+  color: #7DD3FC;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.2);
+}
+
+[data-theme="night"] .guestbook-submit-btn {
+  background: linear-gradient(135deg, #2563EB 0%, #0284C7 60%, #38BDF8 100%);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.5), 0 0 16px rgba(56, 189, 248, 0.3);
+}

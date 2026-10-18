@@ -1,0 +1,292 @@
+.track-requirements-section {
+  padding: 4rem 0 3.5rem 0;
+  background: var(--bg-surface);
+  border-bottom: var(--border-subtle);
+  position: relative;
+}
+
+.requirements-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 640px) {
+  .requirements-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: 4 columns on top row, 2 cards spanning 2 cols on bottom row, exactly matching the challenge design */
+@media (min-width: 1040px) {
+  .requirements-cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .requirement-pill-card:nth-child(5) {
+    grid-column: span 2;
+  }
+
+  .requirement-pill-card:nth-child(6) {
+    grid-column: span 2;
+  }
+}
+
+.requirement-pill-card {
+  position: relative;
+  border-radius: 20px;
+  padding: 1.5rem 1.65rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  user-select: none;
+}
+
+.requirement-pill-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.req-card-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.req-num-and-title {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.req-number-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.req-card-title {
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.req-card-sticker {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.req-card-description {
+  font-size: 0.93rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin: 0 0 1.25rem 0;
+  flex: 1;
+}
+
+.req-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed rgba(0, 0, 0, 0.08);
+}
+
+.req-fulfilled-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.text-check {
+  color: #10B981;
+}
+
+.req-explore-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--starlight-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+}
+
+.requirement-pill-card:hover .req-explore-hint {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+/* Card 1: Pink Theme */
+.card-pink {
+  background: linear-gradient(135deg, #FFF1F2 0%, #FFFFFF 100%);
+  border: 1.5px solid #FDA4AF;
+}
+.card-pink .req-number-circle {
+  background: #FFE4E6;
+  color: #BE123C;
+}
+.card-pink .req-card-title {
+  color: #9F1239;
+}
+
+[data-theme="night"] .card-pink {
+  background: linear-gradient(135deg, rgba(76, 5, 25, 0.45) 0%, rgba(30, 41, 59, 0.8) 100%);
+  border-color: #BE123C;
+}
+[data-theme="night"] .card-pink .req-number-circle {
+  background: #831843;
+  color: #FCE7F3;
+}
+[data-theme="night"] .card-pink .req-card-title {
+  color: #FDA4AF;
+}
+
+/* Card 2: Blue Theme */
+.card-blue {
+  background: linear-gradient(135deg, #F0F9FF 0%, #FFFFFF 100%);
+  border: 1.5px solid #7DD3FC;
+}
+.card-blue .req-number-circle {
+  background: #E0F2FE;
+  color: #0369A1;
+}
+.card-blue .req-card-title {
+  color: #0369A1;
+}
+
+[data-theme="night"] .card-blue {
+  background: linear-gradient(135deg, rgba(8, 47, 73, 0.45) 0%, rgba(30, 41, 59, 0.8) 100%);
+  border-color: #0284C7;
+}
+[data-theme="night"] .card-blue .req-number-circle {
+  background: #075985;
+  color: #E0F2FE;
+}
+[data-theme="night"] .card-blue .req-card-title {
+  color: #7DD3FC;
+}
+
+/* Card 3: Purple Theme */
+.card-purple {
+  background: linear-gradient(135deg, #FAF5FF 0%, #FFFFFF 100%);
+  border: 1.5px solid #D8B4FE;
+}
+.card-purple .req-number-circle {
+  background: #F3E8FF;
+  color: #7E22CE;
+}
+.card-purple .req-card-title {
+  color: #6B21A8;
+}
+
+[data-theme="night"] .card-purple {
+  background: linear-gradient(135deg, rgba(59, 7, 100, 0.45) 0%, rgba(30, 41, 59, 0.8) 100%);
+  border-color: #7E22CE;
+}
+[data-theme="night"] .card-purple .req-number-circle {
+  background: #581C87;
+  color: #F3E8FF;
+}
+[data-theme="night"] .card-purple .req-card-title {
+  color: #D8B4FE;
+}
+
+/* Card 4: Mint Theme */
+.card-mint {
+  background: linear-gradient(135deg, #F0FDF4 0%, #FFFFFF 100%);
+  border: 1.5px solid #86EFAC;
+}
+.card-mint .req-number-circle {
+  background: #DCFCE7;
+  color: #15803D;
+}
+.card-mint .req-card-title {
+  color: #15803D;
+}
+
+[data-theme="night"] .card-mint {
+  background: linear-gradient(135deg, rgba(5, 46, 22, 0.45) 0%, rgba(30, 41, 59, 0.8) 100%);
+  border-color: #16A34A;
+}
+[data-theme="night"] .card-mint .req-number-circle {
+  background: #14532D;
+  color: #DCFCE7;
+}
+[data-theme="night"] .card-mint .req-card-title {
+  color: #86EFAC;
+}
+
+/* Card 5: Yellow Theme */
+.card-yellow {
+  background: linear-gradient(135deg, #FEFCE8 0%, #FFFFFF 100%);
+  border: 1.5px solid #FDE047;
+}
+.card-yellow .req-number-circle {
+  background: #FEF3C7;
+  color: #B45309;
+}
+.card-yellow .req-card-title {
+  color: #A16207;
+}
+
+[data-theme="night"] .card-yellow {
+  background: linear-gradient(135deg, rgba(69, 26, 3, 0.45) 0%, rgba(30, 41, 59, 0.8) 100%);
+  border-color: #CA8A04;
+}
+[data-theme="night"] .card-yellow .req-number-circle {
+  background: #713F12;
+  color: #FEF3C7;
+}
+[data-theme="night"] .card-yellow .req-card-title {
+  color: #FDE047;
+}
+
+/* Card 6: Coral Theme */
+.card-coral {
+  background: linear-gradient(135deg, #FFF7ED 0%, #FFFFFF 100%);
+  border: 1.5px solid #FDBA74;
+}
+.card-coral .req-number-circle {
+  background: #FFEDD5;
+  color: #C2410C;
+}
+.card-coral .req-card-title {
+  color: #9A3412;
+}
+
+[data-theme="night"] .card-coral {
+  background: linear-gradient(135deg, rgba(67, 20, 7, 0.45) 0%, rgba(30, 41, 59, 0.8) 100%);
+  border-color: #EA580C;
+}
+[data-theme="night"] .card-coral .req-number-circle {
+  background: #7C2D12;
+  color: #FFEDD5;
+}
+[data-theme="night"] .card-coral .req-card-title {
+  color: #FDBA74;
+}

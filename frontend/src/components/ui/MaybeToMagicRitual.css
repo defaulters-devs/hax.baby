@@ -1,0 +1,518 @@
+.ritual-section {
+  padding: 4.5rem 0;
+  background: var(--bg-secondary);
+  border-top: var(--border-subtle);
+  border-bottom: var(--border-subtle);
+}
+
+.ritual-altar-card {
+  background: var(--bg-surface);
+  border: 2px solid var(--starlight-gold);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg), var(--shadow-gold);
+  padding: 2.5rem 2rem;
+  max-width: 1380px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+@media (min-width: 640px) {
+  .ritual-altar-card {
+    padding: 3.5rem 3rem;
+  }
+}
+
+/* Input & Catching Stage */
+.input-pane {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.catcher-visual-stage {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  height: 90px;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.floating-maybe-cloud {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #64748B;
+  animation: cloudDrift 3.5s infinite ease-in-out;
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.floating-maybe-cloud.absorbing {
+  animation: absorbToPouch 0.6s forwards ease-in;
+}
+
+.cloud-icon {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.cloud-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.morro-pouch-target {
+  padding: 0.5rem 1.15rem;
+  background: var(--starlight-gold-bg);
+  border: 1.5px dashed var(--starlight-gold);
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--starlight-gold);
+  animation: floatGentle 3s infinite ease-in-out;
+}
+
+.catcher-input-box {
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.catcher-input-box h3 {
+  font-size: 1.75rem;
+  color: var(--text-main);
+  margin-bottom: 0.35rem;
+}
+
+.catcher-subcopy {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.catcher-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.input-group-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media (min-width: 600px) {
+  .input-group-row {
+    flex-direction: row;
+  }
+}
+
+.maybe-task-input {
+  flex: 1;
+  padding: 0.9rem 1.25rem;
+  background: var(--bg-card-subtle);
+  border: 1.5px solid rgba(29, 78, 216, 0.2);
+  border-radius: var(--radius-pill);
+  color: var(--text-main);
+  font-size: 1rem;
+  transition: all var(--transition-fast);
+}
+
+.maybe-task-input:focus {
+  border-color: var(--starlight-gold);
+  background: var(--bg-surface);
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.25);
+}
+
+.catch-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.75rem;
+  background: linear-gradient(135deg, var(--royal-blue) 0%, var(--celestial-blue) 100%);
+  color: white;
+  border-radius: var(--radius-pill);
+  font-size: 0.98rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(29, 78, 216, 0.3);
+  transition: all var(--transition-bounce);
+  white-space: nowrap;
+}
+
+.catch-action-btn:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(29, 78, 216, 0.4);
+}
+
+.catch-action-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.ritual-error-msg {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #DC2626;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: #FEF2F2;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  text-align: left;
+}
+
+.sample-suggestions-row {
+  margin-top: 1.75rem;
+  text-align: left;
+}
+
+.sample-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-light);
+  margin-bottom: 0.65rem;
+}
+
+.sample-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.sample-chip-btn {
+  font-size: 0.82rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background: var(--bg-card-subtle);
+  border: var(--border-subtle);
+  color: var(--royal-blue);
+  transition: all var(--transition-fast);
+}
+
+.sample-chip-btn:hover {
+  background: var(--celestial-soft);
+  transform: translateY(-1px);
+}
+
+/* Result & Action Stage */
+.result-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: left;
+  animation: fadeIn 0.3s ease;
+}
+
+.transformation-header h3 {
+  font-size: 1.75rem;
+  color: var(--text-main);
+  margin-top: 0.5rem;
+}
+
+.transmuted-cards-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .transmuted-cards-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.35fr;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+}
+
+.transmuted-card {
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-md);
+  border: var(--border-card);
+}
+
+.transmuted-card.original {
+  background: rgba(148, 163, 184, 0.08);
+  border-color: rgba(148, 163, 184, 0.25);
+}
+
+.transmuted-card.solution {
+  background: var(--starlight-gold-bg);
+  border: 2px solid var(--starlight-gold);
+  box-shadow: 0 4px 20px rgba(245, 158, 11, 0.15);
+}
+
+.card-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-light);
+  margin-bottom: 0.35rem;
+}
+
+.card-tag.solution-tag {
+  color: var(--starlight-gold);
+}
+
+.original-intent-text {
+  font-size: 1.05rem;
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.card-status-note {
+  font-size: 0.8rem;
+  color: var(--royal-blue);
+  font-weight: 600;
+  margin-top: 0.35rem;
+}
+
+.microstep-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--royal-blue);
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+}
+
+.encouragement-quote {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--text-muted);
+  border-left: 3px solid var(--starlight-gold);
+  padding-left: 0.85rem;
+}
+
+.ready-celebration-banner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--mint-tint);
+  border: 1.5px solid #10B981;
+  border-radius: var(--radius-md);
+  animation: floatGentle 3s infinite ease-in-out;
+}
+
+.ready-celebration-banner strong {
+  color: var(--mint-text);
+  font-size: 0.98rem;
+}
+
+.ready-celebration-banner p {
+  color: var(--text-main);
+  font-size: 0.88rem;
+}
+
+.ritual-result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  padding-top: 0.5rem;
+}
+
+.ritual-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.65rem;
+  background: linear-gradient(135deg, var(--royal-blue) 0%, var(--celestial-blue) 100%);
+  color: white;
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(29, 78, 216, 0.3);
+  transition: all var(--transition-bounce);
+}
+
+.ritual-btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(29, 78, 216, 0.4);
+}
+
+.ritual-btn-primary.ready-done {
+  background: #10B981;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
+  cursor: default;
+}
+
+.ritual-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.45rem;
+  background: var(--bg-card-subtle);
+  border: var(--border-subtle);
+  color: var(--royal-blue);
+  border-radius: var(--radius-pill);
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.ritual-btn-secondary:hover {
+  background: var(--celestial-soft);
+  transform: translateY(-2px);
+}
+
+.ritual-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.85rem 1.15rem;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+}
+
+.ritual-btn-ghost:hover {
+  color: var(--text-main);
+  background: var(--bg-card-subtle);
+}
+
+@media (max-width: 600px) {
+  .ritual-altar-card {
+    padding: 1.75rem 1.15rem;
+    border-radius: 20px;
+  }
+
+  .catcher-input-box h3 {
+    font-size: 1.4rem;
+  }
+
+  .ritual-result-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .ritual-btn-primary,
+  .ritual-btn-secondary,
+  .ritual-btn-ghost {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Cosmic Night / Dark Mode Specific Enhancements
+   -------------------------------------------------------------------------- */
+[data-theme="night"] .ritual-section {
+  background: var(--bg-secondary);
+  border-color: rgba(56, 189, 248, 0.2);
+}
+
+[data-theme="night"] .ritual-altar-card {
+  background: var(--bg-surface);
+  border: 2px solid rgba(251, 191, 36, 0.6);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.65), 0 0 35px rgba(245, 158, 11, 0.25);
+}
+
+[data-theme="night"] .floating-maybe-cloud {
+  color: #94A3B8;
+}
+
+[data-theme="night"] .morro-pouch-target {
+  background: rgba(245, 158, 11, 0.2);
+  border-color: #FBBF24;
+  color: #FDE68A;
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.3);
+}
+
+[data-theme="night"] .maybe-task-input {
+  background: rgba(31, 46, 94, 0.7);
+  border: 1.5px solid rgba(56, 189, 248, 0.35);
+  color: #F8FAFC;
+}
+
+[data-theme="night"] .maybe-task-input:focus {
+  background: rgba(31, 46, 94, 0.95);
+  border-color: #FBBF24;
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.35);
+}
+
+[data-theme="night"] .sample-chip-btn {
+  background: rgba(31, 46, 94, 0.75);
+  border: 1.5px solid rgba(56, 189, 248, 0.3);
+  color: #7DD3FC;
+}
+
+[data-theme="night"] .sample-chip-btn:hover {
+  background: rgba(56, 189, 248, 0.25);
+  border-color: #38BDF8;
+  color: #FFFFFF;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.35);
+}
+
+[data-theme="night"] .transmuted-card.original {
+  background: rgba(15, 23, 42, 0.75);
+  border-color: rgba(148, 163, 184, 0.25);
+}
+
+[data-theme="night"] .transmuted-card.solution {
+  background: rgba(43, 33, 11, 0.7);
+  border: 2px solid #FBBF24;
+  box-shadow: 0 0 25px rgba(245, 158, 11, 0.28);
+}
+
+[data-theme="night"] .card-status-note {
+  color: #7DD3FC;
+}
+
+[data-theme="night"] .microstep-text {
+  color: #FDE68A;
+  text-shadow: 0 0 14px rgba(245, 158, 11, 0.35);
+}
+
+[data-theme="night"] .encouragement-quote {
+  color: #CBD5E1;
+  border-left-color: #FBBF24;
+}
+
+[data-theme="night"] .ready-celebration-banner {
+  background: rgba(6, 78, 59, 0.5);
+  border: 1.5px solid #10B981;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.25);
+}
+
+[data-theme="night"] .ready-celebration-banner strong {
+  color: #6EE7B7;
+}
+
+[data-theme="night"] .ready-celebration-banner p {
+  color: #E2E8F0;
+}
+
+[data-theme="night"] .ritual-btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(148, 163, 184, 0.35);
+  color: #F8FAFC;
+}
+
+[data-theme="night"] .ritual-btn-secondary:hover {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: #38BDF8;
+  color: #38BDF8;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.35);
+}
+
+[data-theme="night"] .ritual-btn-ghost {
+  color: #CBD5E1;
+}
+
+[data-theme="night"] .ritual-btn-ghost:hover {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.08);
+}

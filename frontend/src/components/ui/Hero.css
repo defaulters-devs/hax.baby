@@ -1,0 +1,1561 @@
+/* ==========================================================================
+   HERO / HOME SECTION STYLES — PROJECT MORRO
+   Ultra-Cute, Handcrafted Storybook Aesthetic & Smooth Interactivity
+   ========================================================================== */
+
+.hero-section {
+  position: relative;
+  min-height: calc(100vh - 78px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.5rem, 3.5vh, 3.5rem) 0 clamp(2rem, 4vh, 4rem);
+  box-sizing: border-box;
+  overflow: hidden;
+  background: 
+    radial-gradient(circle at 85% 20%, rgba(56, 189, 248, 0.16) 0%, transparent 55%),
+    radial-gradient(circle at 15% 30%, rgba(254, 240, 138, 0.22) 0%, transparent 50%),
+    radial-gradient(circle at 10% 80%, rgba(245, 158, 11, 0.14) 0%, transparent 45%),
+    radial-gradient(circle at 75% 85%, rgba(252, 231, 243, 0.28) 0%, transparent 55%);
+}
+
+[data-theme="night"] .hero-section {
+  background: 
+    radial-gradient(circle at 85% 20%, rgba(56, 189, 248, 0.12) 0%, transparent 60%),
+    radial-gradient(circle at 20% 40%, rgba(147, 51, 234, 0.15) 0%, transparent 55%),
+    radial-gradient(circle at 50% 80%, rgba(245, 158, 11, 0.08) 0%, transparent 60%),
+    linear-gradient(180deg, rgba(8, 12, 26, 0.6) 0%, rgba(13, 20, 44, 0.4) 100%);
+}
+
+/* Decorative Floating Background Clouds / Nebulae */
+.hero-cloud-puff {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-cloud-puff-1 {
+  top: 8%;
+  left: 2%;
+  width: clamp(160px, 20vw, 280px);
+  height: clamp(80px, 12vw, 140px);
+  background: radial-gradient(ellipse, rgba(255, 255, 255, 0.85) 0%, rgba(224, 242, 254, 0.5) 60%, transparent 80%);
+  filter: blur(20px);
+  animation: cloudDrift 18s ease-in-out infinite alternate;
+}
+
+.hero-cloud-puff-2 {
+  bottom: 10%;
+  right: 4%;
+  width: clamp(200px, 24vw, 340px);
+  height: clamp(100px, 14vw, 170px);
+  background: radial-gradient(ellipse, rgba(254, 243, 199, 0.75) 0%, rgba(252, 231, 243, 0.45) 60%, transparent 80%);
+  filter: blur(24px);
+  animation: cloudDrift 24s ease-in-out infinite alternate-reverse;
+}
+
+[data-theme="night"] .hero-cloud-puff-1 {
+  background: radial-gradient(ellipse, rgba(56, 189, 248, 0.12) 0%, rgba(30, 58, 138, 0.1) 60%, transparent 80%);
+}
+
+[data-theme="night"] .hero-cloud-puff-2 {
+  background: radial-gradient(ellipse, rgba(147, 51, 234, 0.12) 0%, rgba(245, 158, 11, 0.08) 60%, transparent 80%);
+}
+
+@keyframes cloudDrift {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(25px, -15px) scale(1.08); }
+  100% { transform: translate(-20px, 15px) scale(0.96); }
+}
+
+/* Floating Pet Sparks / Hearts on Click */
+.hero-floating-pet-spark {
+  position: absolute;
+  pointer-events: none;
+  font-size: 1.85rem;
+  z-index: 30;
+  user-select: none;
+  animation: petSparkFloat 1.2s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes petSparkFloat {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -60px) scale(1.35) rotate(15deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -110px) scale(0.85) rotate(-15deg);
+  }
+}
+
+/* Container & Columns */
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+@media (min-width: 960px) {
+  .hero-container {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(2rem, 3.5vw, 4rem);
+    align-items: center;
+  }
+}
+
+.hero-content-col {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem, 1.35vh, 1.25rem);
+  text-align: left;
+}
+
+/* ==========================================================================
+   UNIFIED CLEAN MASCOT IDENTITY & WELCOME RIBBON
+   ========================================================================== */
+.hero-identity-ribbon {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.hero-mascot-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.95rem;
+  background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 60%, #E0F2FE 100%);
+  border: 1.5px solid #F59E0B;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.18);
+  user-select: none;
+  animation: pulseGentle 3s infinite ease-in-out;
+}
+
+[data-theme="night"] .hero-mascot-pill {
+  background: linear-gradient(135deg, rgba(30, 27, 75, 0.92) 0%, rgba(15, 23, 42, 0.96) 100%);
+  border-color: rgba(251, 191, 36, 0.75);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 16px rgba(245, 158, 11, 0.22);
+}
+
+.mascot-crown-icon {
+  font-size: 1.15rem;
+  line-height: 1;
+  display: inline-block;
+  animation: pulseGentle 2s infinite ease-in-out;
+}
+
+.mascot-name-label {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  background: linear-gradient(135deg, #1D4ED8 0%, #0284C7 60%, #F59E0B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+}
+
+[data-theme="night"] .mascot-name-label {
+  background: linear-gradient(135deg, #93C5FD 0%, #38BDF8 40%, #FBBF24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mascot-sub-label {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 800;
+  background: #FFFFFF;
+  color: #B45309;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  padding: 0.12rem 0.55rem;
+  border-radius: var(--radius-pill);
+}
+
+[data-theme="night"] .mascot-sub-label {
+  background: rgba(245, 158, 11, 0.2);
+  border-color: #FBBF24;
+  color: #FDE68A;
+}
+
+.mascot-sparkle-star {
+  color: #F59E0B;
+  font-size: 0.85rem;
+  animation: twinkleStar 2s infinite ease-in-out;
+}
+
+.hero-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, #FFFDF0 0%, #FEF3C7 100%);
+  border: 1.5px solid #F59E0B;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #B45309;
+  box-shadow: 0 3px 10px rgba(245, 158, 11, 0.14);
+}
+
+[data-theme="night"] .hero-status-pill {
+  background: linear-gradient(135deg, rgba(30, 27, 75, 0.9) 0%, rgba(20, 27, 56, 0.95) 100%);
+  border-color: #FBBF24;
+  color: #FDE68A;
+}
+
+.pulse-green-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+  animation: pulseGlow 1.5s infinite;
+}
+
+.hero-guilt-free-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%);
+  border: 1.5px solid #10B981;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #047857;
+  box-shadow: 0 3px 10px rgba(16, 185, 129, 0.14);
+}
+
+[data-theme="night"] .hero-guilt-free-pill {
+  background: linear-gradient(135deg, rgba(6, 78, 59, 0.4) 0%, rgba(4, 120, 87, 0.25) 100%);
+  border-color: #34D399;
+  color: #A7F3D0;
+}
+
+.text-emerald {
+  color: #059669;
+}
+
+/* Headline & Playful Sparkle */
+.hero-headline-wrap {
+  position: relative;
+  display: inline-block;
+}
+
+.hero-headline {
+  font-size: clamp(2.5rem, 4.2vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1.14;
+  letter-spacing: -0.025em;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.interactive-headline-pill {
+  cursor: pointer;
+  display: inline-block;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.2s ease;
+  user-select: none;
+}
+
+.interactive-headline-pill:hover {
+  transform: scale(1.06) rotate(-2deg);
+}
+
+.hero-headline-sparkle {
+  position: absolute;
+  top: -10px;
+  right: -20px;
+  font-size: 1.6rem;
+  color: #F59E0B;
+  animation: twinkleStar 2.5s infinite ease-in-out;
+}
+
+.highlight-maybe {
+  color: #8B5CF6;
+}
+
+[data-theme="night"] .highlight-maybe {
+  color: #C084FC;
+  text-shadow: 0 0 18px rgba(192, 132, 252, 0.6);
+}
+
+.highlight-done {
+  color: var(--royal-blue);
+  background: linear-gradient(135deg, var(--royal-blue) 0%, var(--celestial-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+[data-theme="night"] .highlight-done {
+  background: linear-gradient(135deg, #38BDF8 0%, #60A5FA 50%, #FBBF24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 16px rgba(56, 189, 248, 0.55));
+}
+
+/* Slogan Pill Ribbon */
+.hero-original-tagline-ribbon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1rem;
+  background: linear-gradient(90deg, rgba(254, 243, 199, 0.85) 0%, rgba(255, 251, 235, 0.95) 50%, rgba(254, 243, 199, 0.85) 100%);
+  border: 1.5px solid rgba(245, 158, 11, 0.45);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 3px 10px rgba(245, 158, 11, 0.12);
+  align-self: flex-start;
+}
+
+[data-theme="night"] .hero-original-tagline-ribbon {
+  background: linear-gradient(90deg, rgba(30, 27, 75, 0.8) 0%, rgba(20, 27, 56, 0.9) 50%, rgba(30, 27, 75, 0.8) 100%);
+  border-color: rgba(251, 191, 36, 0.5);
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.2);
+}
+
+.tagline-text {
+  font-family: var(--font-heading);
+  font-size: clamp(0.92rem, 1.1vw, 1.05rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #B45309;
+  text-transform: uppercase;
+}
+
+[data-theme="night"] .tagline-text {
+  color: #FDE68A;
+  text-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+}
+
+.tagline-star {
+  color: #F59E0B;
+  animation: twinkleStar 2s infinite ease-in-out;
+}
+
+/* ==========================================================================
+   CLEAN, CUTE & DEEPLY INTERACTIVE STORYBOOK COMPANION CARD
+   ========================================================================== */
+.hero-story-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 2px solid rgba(56, 189, 248, 0.35);
+  border-left: 5px solid #0284C7;
+  border-radius: 20px;
+  padding: clamp(1rem, 1.6vh, 1.4rem) clamp(1.2rem, 1.8vw, 1.6rem);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px rgba(29, 78, 216, 0.08), 0 2px 8px rgba(0, 0, 0, 0.03);
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  transition: all var(--transition-fast);
+}
+
+.hero-story-card:hover {
+  border-color: rgba(56, 189, 248, 0.6);
+  box-shadow: 0 14px 38px rgba(29, 78, 216, 0.12);
+}
+
+[data-theme="night"] .hero-story-card {
+  background: rgba(20, 27, 56, 0.88);
+  border-color: rgba(56, 189, 248, 0.3);
+  border-left: 5px solid #38BDF8;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45);
+}
+
+.story-card-top-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #0284C7;
+  text-transform: uppercase;
+}
+
+[data-theme="night"] .story-card-top-tag {
+  color: #38BDF8;
+}
+
+.story-card-tag-emoji {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.story-card-interactive-cue {
+  margin-left: auto;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #B45309;
+  background: #FFFBEB;
+  border: 1px solid #FDE68A;
+  padding: 1px 8px;
+  border-radius: var(--radius-pill);
+}
+
+[data-theme="night"] .story-card-interactive-cue {
+  background: rgba(245, 158, 11, 0.15);
+  color: #FDE68A;
+  border-color: #F59E0B;
+}
+
+.hero-description {
+  font-size: clamp(0.98rem, 1.15vw, 1.14rem);
+  color: var(--text-main);
+  line-height: 1.68;
+  margin: 0;
+}
+
+[data-theme="night"] .hero-description {
+  color: #E2E8F0;
+}
+
+/* Interactive Keyword Buttons inside Description */
+.interactive-text-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.96em;
+  padding: 2px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all var(--transition-bounce);
+  user-select: none;
+  border: none;
+}
+
+.interactive-text-pill:hover {
+  transform: translateY(-2px) scale(1.05);
+}
+
+.morro-pill {
+  background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+  border: 1.5px dashed #3B82F6 !important;
+  color: #1D4ED8;
+}
+
+[data-theme="night"] .morro-pill {
+  background: rgba(30, 58, 138, 0.45);
+  border-color: #60A5FA !important;
+  color: #93C5FD;
+}
+
+.maybe-pill {
+  background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 100%);
+  border: 1.5px dashed #8B5CF6 !important;
+  color: #7C3AED;
+}
+
+[data-theme="night"] .maybe-pill {
+  background: rgba(91, 33, 182, 0.35);
+  border-color: #C084FC !important;
+  color: #E9D5FF;
+}
+
+.magic-pill {
+  background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+  border: 1.5px dashed #F59E0B !important;
+  color: #B45309;
+}
+
+[data-theme="night"] .magic-pill {
+  background: rgba(180, 83, 9, 0.35);
+  border-color: #FBBF24 !important;
+  color: #FDE68A;
+}
+
+.pill-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #3B82F6;
+  animation: pulseGlow 1.5s infinite;
+}
+
+/* Quick Catch Mini-Sandbox */
+.hero-quick-catch-dock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.65rem 0.95rem;
+  background: linear-gradient(135deg, rgba(240, 249, 255, 0.7) 0%, rgba(254, 243, 199, 0.45) 100%);
+  border: 1.5px solid rgba(56, 189, 248, 0.25);
+  border-radius: 14px;
+}
+
+[data-theme="night"] .hero-quick-catch-dock {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.6) 0%, rgba(30, 27, 75, 0.4) 100%);
+  border-color: rgba(56, 189, 248, 0.2);
+}
+
+.quick-catch-header {
+  display: flex;
+  align-items: center;
+}
+
+.quick-catch-label {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+[data-theme="night"] .quick-catch-label {
+  color: #CBD5E1;
+}
+
+.quick-catch-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.quick-catch-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid rgba(56, 189, 248, 0.4);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #0369A1;
+  cursor: pointer;
+  transition: all var(--transition-bounce);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.quick-catch-chip:hover {
+  transform: translateY(-2px) scale(1.04);
+  background: #E0F2FE;
+  border-color: #0284C7;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+}
+
+.quick-catch-chip.active {
+  background: linear-gradient(135deg, #1D4ED8 0%, #0284C7 100%);
+  color: #FFFFFF;
+  border-color: #1D4ED8;
+}
+
+[data-theme="night"] .quick-catch-chip {
+  background: rgba(30, 41, 59, 0.85);
+  border-color: rgba(56, 189, 248, 0.35);
+  color: #BAE6FD;
+}
+
+[data-theme="night"] .quick-catch-chip:hover {
+  background: rgba(56, 189, 248, 0.25);
+  color: #FFFFFF;
+  border-color: #38BDF8;
+}
+
+.chip-emoji {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.chip-name {
+  line-height: 1;
+}
+
+.chip-badge {
+  font-size: 0.65rem;
+  padding: 1px 6px;
+  border-radius: var(--radius-pill);
+  background: #FEF3C7;
+  color: #B45309;
+}
+
+.quick-catch-success-banner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ECFDF5 0%, #FEF3C7 100%);
+  border: 1px solid #10B981;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #065F46;
+  animation: popSpring 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+[data-theme="night"] .quick-catch-success-banner {
+  background: linear-gradient(135deg, rgba(6, 78, 59, 0.6) 0%, rgba(30, 27, 75, 0.6) 100%);
+  border-color: #34D399;
+  color: #A7F3D0;
+}
+
+.success-close-btn {
+  margin-left: auto;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: #065F46;
+  opacity: 0.7;
+  background: none;
+  border: none;
+}
+
+.success-close-btn:hover {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   PLAYFUL PILL ACTION BUTTONS
+   ========================================================================== */
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 0.15rem;
+}
+
+.hero-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: clamp(0.75rem, 1.2vh, 0.95rem) clamp(1.75rem, 2.2vw, 2.25rem);
+  background: linear-gradient(135deg, #1D4ED8 0%, #0284C7 60%, #38BDF8 100%);
+  color: white;
+  font-family: var(--font-heading);
+  font-size: clamp(0.98rem, 1.1vw, 1.08rem);
+  font-weight: 800;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 8px 24px -3px rgba(29, 78, 216, 0.4), 0 3px 12px rgba(56, 189, 248, 0.25);
+  transition: all var(--transition-bounce);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.btn-icon-bounce {
+  font-size: 1.2rem;
+  display: inline-block;
+  animation: bounceGentle 2.2s infinite ease-in-out;
+}
+
+.btn-arrow {
+  transition: transform 0.2s ease;
+}
+
+.hero-primary-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 32px -4px rgba(29, 78, 216, 0.5), 0 6px 16px rgba(56, 189, 248, 0.4);
+}
+
+.hero-primary-btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+[data-theme="night"] .hero-primary-btn {
+  background: linear-gradient(135deg, #2563EB 0%, #0284C7 60%, #38BDF8 100%);
+  color: #FFFFFF;
+  box-shadow: 0 6px 24px rgba(2, 132, 199, 0.5), 0 0 16px rgba(56, 189, 248, 0.3);
+}
+
+.hero-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: clamp(0.72rem, 1.15vh, 0.92rem) clamp(1.5rem, 1.9vw, 1.95rem);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid rgba(29, 78, 216, 0.3);
+  color: var(--royal-blue);
+  font-family: var(--font-heading);
+  font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+  font-weight: 800;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 16px rgba(29, 78, 216, 0.1);
+  transition: all var(--transition-bounce);
+  cursor: pointer;
+}
+
+.btn-icon-paw {
+  font-size: 1.15rem;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.hero-secondary-btn:hover {
+  background: var(--celestial-soft);
+  border-color: var(--royal-blue);
+  color: var(--royal-blue-hover);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 22px rgba(29, 78, 216, 0.16);
+}
+
+.hero-secondary-btn:hover .btn-icon-paw {
+  transform: rotate(-12deg) scale(1.15);
+}
+
+[data-theme="night"] .hero-secondary-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.5px solid rgba(148, 163, 184, 0.35);
+  color: #F8FAFC;
+  backdrop-filter: blur(12px);
+}
+
+[data-theme="night"] .hero-secondary-btn:hover {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: #38BDF8;
+  color: #38BDF8;
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.35);
+}
+
+/* ==========================================================================
+   CLEAN INTEGRATED MOMENTUM & MASCOT TRAIT DOCK
+   ========================================================================== */
+.hero-momentum-dock {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.25rem;
+}
+
+.hero-momentum-card {
+  display: inline-flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(246, 249, 254, 0.92) 100%);
+  border: 1.5px solid rgba(245, 158, 11, 0.4);
+  border-radius: 18px;
+  padding: 0.55rem 1rem;
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.15), 0 2px 6px rgba(0, 0, 0, 0.03);
+  backdrop-filter: blur(8px);
+  transition: all var(--transition-fast);
+  flex: 1 1 320px;
+  max-width: 420px;
+}
+
+.hero-momentum-card:hover {
+  transform: translateY(-2px);
+  border-color: #F59E0B;
+  box-shadow: 0 10px 26px rgba(245, 158, 11, 0.22);
+}
+
+[data-theme="night"] .hero-momentum-card {
+  background: linear-gradient(135deg, rgba(20, 27, 56, 0.92) 0%, rgba(15, 23, 42, 0.96) 100%);
+  border-color: rgba(251, 191, 36, 0.45);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 16px rgba(245, 158, 11, 0.2);
+}
+
+.momentum-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.2rem;
+}
+
+.momentum-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.momentum-title {
+  font-family: var(--font-heading);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--royal-blue);
+  text-transform: uppercase;
+}
+
+[data-theme="night"] .momentum-title {
+  color: #93C5FD;
+}
+
+.momentum-badge {
+  font-size: 0.6rem;
+  font-weight: 800;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #059669;
+  padding: 1px 7px;
+  border-radius: var(--radius-pill);
+}
+
+[data-theme="night"] .momentum-badge {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: #34D399;
+  color: #6EE7B7;
+}
+
+.momentum-cheer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+  border: 1.5px solid #F59E0B;
+  color: #B45309;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all var(--transition-bounce);
+}
+
+.momentum-cheer-btn:hover {
+  transform: scale(1.08) translateY(-1px);
+  background: #FDE68A;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
+}
+
+.hero-traits-capsule {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.trait-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-bounce);
+  user-select: none;
+  border: none;
+}
+
+.trait-pill:hover {
+  transform: translateY(-2px) scale(1.04);
+}
+
+.trait-pill-pink {
+  background: rgba(252, 231, 243, 0.85);
+  border: 1px solid rgba(244, 114, 182, 0.5) !important;
+  color: #BE185D;
+}
+
+.trait-pill-gold {
+  background: rgba(254, 243, 199, 0.85);
+  border: 1px solid rgba(245, 158, 11, 0.5) !important;
+  color: #B45309;
+}
+
+.trait-pill-blue {
+  background: rgba(224, 242, 254, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.5) !important;
+  color: #0369A1;
+  cursor: default;
+}
+
+[data-theme="night"] .trait-pill-pink {
+  background: rgba(190, 24, 93, 0.25);
+  border-color: #F472B6 !important;
+  color: #FBCFE8;
+}
+
+[data-theme="night"] .trait-pill-gold {
+  background: rgba(180, 83, 9, 0.25);
+  border-color: #FBBF24 !important;
+  color: #FDE68A;
+}
+
+[data-theme="night"] .trait-pill-blue {
+  background: rgba(3, 105, 161, 0.25);
+  border-color: #38BDF8 !important;
+  color: #BAE6FD;
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: INTERACTIVE CHARACTER CANVAS
+   ========================================================================== */
+.hero-visual-col {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-character-stage {
+  position: relative;
+  width: 100%;
+  max-width: clamp(360px, 38vw, 540px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Celestial Halo & Stardust Ring */
+.celestial-halo {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(340px, 38vw, 520px);
+  height: clamp(340px, 38vw, 520px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(186, 230, 253, 0.55) 0%, rgba(254, 243, 199, 0.45) 45%, rgba(245, 158, 11, 0.18) 65%, transparent 75%);
+  filter: blur(32px);
+  z-index: 1;
+  pointer-events: none;
+  animation: celestialBreathe 5.5s ease-in-out infinite;
+}
+
+@keyframes celestialBreathe {
+  0% { transform: translate(-50%, -50%) scale(0.96); opacity: 0.8; }
+  50% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(0.96); opacity: 0.8; }
+}
+
+[data-theme="night"] .celestial-halo {
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.35) 0%, rgba(147, 51, 234, 0.28) 45%, rgba(245, 158, 11, 0.12) 65%, transparent 75%);
+}
+
+.celestial-stardust-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(380px, 42vw, 560px);
+  height: clamp(380px, 42vw, 560px);
+  border-radius: 50%;
+  border: 1.5px dashed rgba(245, 158, 11, 0.35);
+  z-index: 1;
+  pointer-events: none;
+  animation: spinSlow 40s linear infinite;
+}
+
+@keyframes spinSlow {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ==========================================================================
+   FLOATING SPEECH BUBBLE FOR MORRO ("Heyy, I'm Morro!")
+   Positioned comfortably above Morro's ear with tail pointing down towards him
+   ========================================================================== */
+.morro-speech-bubble-wrapper {
+  position: absolute;
+  top: clamp(-14px, -0.8vh, 6px);
+  left: clamp(-34px, -3.2vw, 2px);
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: morroSpeechBob 4.2s infinite ease-in-out;
+}
+
+@keyframes morroSpeechBob {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(-1deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.morro-speech-bubble-wrapper:hover {
+  transform: scale(1.04) translateY(-3px) !important;
+}
+
+.morro-speech-card {
+  position: relative;
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFFDF7 60%, #F0F9FF 100%);
+  border: 2px solid #F59E0B;
+  border-radius: 18px;
+  padding: 0.5rem 0.9rem;
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.2), 0 2px 6px rgba(0, 0, 0, 0.04);
+  max-width: 205px;
+  text-align: left;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all var(--transition-fast);
+}
+
+.morro-speech-bubble-wrapper:hover .morro-speech-card {
+  border-color: #38BDF8;
+  box-shadow: 0 12px 30px rgba(56, 189, 248, 0.35);
+}
+
+[data-theme="night"] .morro-speech-card {
+  background: linear-gradient(135deg, rgba(20, 27, 56, 0.96) 0%, rgba(15, 23, 42, 0.98) 100%);
+  border-color: #FBBF24;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 16px rgba(245, 158, 11, 0.3);
+}
+
+.morro-speech-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+  margin-bottom: 0.18rem;
+}
+
+.morro-speech-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #B45309;
+  text-transform: uppercase;
+}
+
+[data-theme="night"] .morro-speech-badge {
+  color: #FDE68A;
+}
+
+.speech-click-hint {
+  font-family: var(--font-heading);
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: #1D4ED8;
+  background: #E0F2FE;
+  border: 1px solid #BAE6FD;
+  padding: 0.1rem 0.45rem;
+  border-radius: var(--radius-pill);
+}
+
+[data-theme="night"] .speech-click-hint {
+  color: #93C5FD;
+  background: rgba(30, 58, 138, 0.5);
+  border-color: #3B82F6;
+}
+
+.morro-speech-body {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.speech-wave-icon {
+  font-size: 1.15rem;
+  display: inline-block;
+  animation: waveHand 2.2s infinite ease-in-out;
+  transform-origin: 70% 70%;
+}
+
+@keyframes waveHand {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.speech-main-phrase {
+  font-family: var(--font-heading);
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: var(--royal-blue);
+  line-height: 1.2;
+}
+
+[data-theme="night"] .speech-main-phrase {
+  color: #60A5FA;
+}
+
+.morro-speech-subtext {
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  margin: 0.15rem 0 0 0;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+[data-theme="night"] .morro-speech-subtext {
+  color: #CBD5E1;
+}
+
+/* Cute speech tail pointing down-right towards Morro's ear/face */
+.morro-speech-arrow {
+  position: absolute;
+  bottom: -10px;
+  right: 28px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid #F59E0B;
+}
+
+.morro-speech-arrow::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: -6px;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid #FFFDF7;
+}
+
+[data-theme="night"] .morro-speech-arrow {
+  border-top-color: #FBBF24;
+}
+
+[data-theme="night"] .morro-speech-arrow::after {
+  border-top-color: #141B38;
+}
+
+/* ==========================================================================
+   FLOATING SPIRIT COMPANION (SPARKY)
+   ========================================================================== */
+.spirit-companion-wrapper {
+  position: absolute;
+  top: clamp(14px, 2.5vh, 36px);
+  right: clamp(-20px, -2vw, 0px);
+  z-index: 9;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+}
+
+.sparky-bubble {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #BAE6FD 0%, #38BDF8 60%, #0284C7 100%);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.65), inset 0 -2px 5px rgba(2, 132, 199, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: sparkyBob 3.5s infinite ease-in-out;
+}
+
+@keyframes sparkyBob {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(4deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.spirit-companion-wrapper:hover .sparky-bubble {
+  transform: scale(1.12) rotate(4deg);
+  box-shadow: 0 0 22px rgba(245, 158, 11, 0.85);
+}
+
+.sparky-face {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.sparky-eye {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #032A4A;
+}
+
+.sparky-eye.sleepy {
+  width: auto;
+  height: auto;
+  background: transparent;
+  font-size: 10px;
+  font-weight: 700;
+  color: #032A4A;
+  line-height: 1;
+}
+
+.sparky-smile {
+  width: 5px;
+  height: 2.5px;
+  border-bottom: 2px solid #032A4A;
+  border-radius: 0 0 4px 4px;
+}
+
+.sparky-wing {
+  position: absolute;
+  top: 13px;
+  width: 12px;
+  height: 8px;
+  background: rgba(186, 230, 253, 0.85);
+  border-radius: 50%;
+}
+
+.sparky-wing.left { left: -7px; transform: rotate(-25deg); }
+.sparky-wing.right { right: -7px; transform: rotate(25deg); }
+
+.sparky-hint-bubble {
+  margin-top: 5px;
+  background: var(--bg-surface);
+  border: 1.5px solid var(--starlight-gold);
+  border-radius: var(--radius-pill);
+  padding: 3px 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--royal-blue);
+  box-shadow: 0 3px 10px rgba(245, 158, 11, 0.15);
+  white-space: nowrap;
+  animation: floatGentle 2s infinite ease-in-out;
+}
+
+[data-theme="night"] .sparky-hint-bubble {
+  background: rgba(21, 31, 66, 0.95);
+  border: 1.5px solid #FBBF24;
+  color: #FDE68A;
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.35);
+}
+
+/* ==========================================================================
+   MAIN MORRO CHARACTER ARTWORK WITH 3D TILT & PETTING
+   ========================================================================== */
+.hero-character-frame {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+}
+
+.hero-morro-img {
+  width: 100%;
+  max-width: clamp(340px, 34vw, 500px);
+  max-height: clamp(360px, 52vh, 520px);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 36px rgba(29, 78, 216, 0.2));
+  user-select: none;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.25s ease;
+}
+
+.hero-morro-img:hover {
+  transform: scale(1.02);
+  filter: drop-shadow(0 16px 34px rgba(245, 158, 11, 0.35));
+}
+
+.hero-morro-img:active {
+  transform: scale(0.98);
+}
+
+/* Morro Bottom Action Row & Pills */
+.morro-bottom-actions-row {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  width: max-content;
+  max-width: 96%;
+  flex-wrap: wrap;
+}
+
+.pet-morro-cue-pill {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 12;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1.5px solid #F59E0B;
+  border-radius: var(--radius-pill);
+  padding: 3.5px 13px;
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: #B45309;
+  box-shadow: 0 3px 12px rgba(245, 158, 11, 0.24);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  animation: floatGentle 2.5s infinite ease-in-out;
+  transition: all var(--transition-fast);
+}
+
+.morro-bottom-actions-row .pet-morro-cue-pill {
+  position: static;
+  transform: none;
+}
+
+.pet-morro-cue-pill:hover {
+  transform: translateX(-50%) scale(1.06);
+  background: #FFFBEB;
+  box-shadow: 0 5px 16px rgba(245, 158, 11, 0.35);
+}
+
+.morro-bottom-actions-row .pet-morro-cue-pill:hover {
+  transform: scale(1.06);
+}
+
+[data-theme="night"] .pet-morro-cue-pill {
+  background: rgba(20, 27, 56, 0.95);
+  border-color: #FBBF24;
+  color: #FDE68A;
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.35);
+}
+
+/* How Morro Born Button */
+.how-morro-born-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: linear-gradient(135deg, #1D4ED8 0%, #0284C7 100%);
+  border: 1.5px solid #60A5FA;
+  border-radius: var(--radius-pill);
+  padding: 3.5px 13px;
+  font-family: var(--font-heading);
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  box-shadow: 0 3px 12px rgba(29, 78, 216, 0.35);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+  animation: floatGentle 2.5s infinite ease-in-out 0.3s;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.how-morro-born-btn:hover {
+  transform: scale(1.06);
+  background: linear-gradient(135deg, #1E40AF 0%, #0369A1 100%);
+  box-shadow: 0 5px 16px rgba(29, 78, 216, 0.45);
+  color: #FFFFFF;
+}
+
+.how-morro-born-btn:active {
+  transform: scale(0.97);
+}
+
+.how-morro-born-btn .btn-star-sparkle {
+  color: #FDE68A;
+  animation: twinkleStar 1.8s infinite;
+}
+
+[data-theme="night"] .how-morro-born-btn {
+  background: linear-gradient(135deg, #2563EB 0%, #0EA5E9 100%);
+  border-color: #93C5FD;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.4);
+}
+
+/* Floating Stars around Morro */
+.floating-star {
+  position: absolute;
+  color: #F59E0B;
+  font-size: 1.4rem;
+  user-select: none;
+  pointer-events: none;
+  animation: twinkleStar 3s infinite ease-in-out;
+}
+
+.star-1 { top: 12%; left: 10%; animation-delay: 0.2s; }
+.star-2 { bottom: 25%; left: 5%; animation-delay: 1.2s; color: #38BDF8; font-size: 1.8rem; }
+.star-3 { top: 40%; right: 5%; animation-delay: 2.1s; color: #FBBF24; }
+.star-4 { top: 8%; right: 18%; animation-delay: 0.8s; color: #EC4899; font-size: 1.5rem; }
+.star-5 { bottom: 15%; right: 12%; animation-delay: 1.6s; color: #A855F7; font-size: 1.3rem; }
+.star-6 { top: 65%; left: 14%; animation-delay: 2.5s; color: #10B981; font-size: 1.2rem; }
+.star-7 { bottom: 45%; left: -2%; animation-delay: 1.9s; color: #F43F5E; font-size: 1.6rem; }
+
+.character-ground-shadow {
+  width: 65%;
+  height: 20px;
+  background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.22) 0%, transparent 70%);
+  border-radius: 50%;
+  margin-top: -15px;
+  z-index: 1;
+}
+
+[data-theme="night"] .character-ground-shadow {
+  background: radial-gradient(ellipse at center, rgba(56, 189, 248, 0.25) 0%, transparent 70%);
+}
+
+/* ==========================================================================
+   RESPONSIVENESS (MOBILE & TABLET)
+   ========================================================================== */
+@media (max-width: 960px) {
+  .hero-section {
+    padding: clamp(2.5rem, 5vw, 4.5rem) 0 clamp(3rem, 5vw, 5rem);
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .hero-content-col {
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero-top-badges {
+    justify-content: center;
+  }
+
+  .hero-baby-name-banner {
+    align-self: center;
+  }
+
+  .hero-original-tagline-ribbon {
+    align-self: center;
+  }
+
+  .hero-story-card {
+    text-align: center;
+    border-left: 1.5px solid rgba(224, 242, 254, 0.95);
+    border-top: 4px solid #38BDF8;
+  }
+
+  .hero-cta-group {
+    justify-content: center;
+  }
+
+  .hero-momentum-card {
+    align-self: center;
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .hero-early-web-status {
+    justify-content: center;
+  }
+
+  .hero-character-stage {
+    max-width: 480px;
+    margin: 1rem auto 0;
+  }
+
+  .morro-speech-bubble-wrapper {
+    left: clamp(-10px, -2vw, 10px);
+    top: clamp(0px, 1vw, 20px);
+  }
+
+  .spirit-companion-wrapper {
+    right: 5px;
+    top: 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-headline {
+    font-size: clamp(2.2rem, 8vw, 3rem);
+    line-height: 1.16;
+  }
+
+  .hero-baby-name-banner {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0.55rem 0.95rem;
+    border-radius: 20px;
+    width: 100%;
+  }
+
+  .baby-greeting-label {
+    font-size: 0.8rem;
+  }
+
+  .hero-baby-name-text {
+    font-size: 1.6rem;
+  }
+
+  .hero-baby-badge {
+    font-size: 0.72rem;
+  }
+
+  .hero-primary-btn, 
+  .hero-secondary-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .morro-speech-bubble-wrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 1.25rem;
+    align-self: center;
+  }
+
+  .morro-speech-card {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .morro-speech-header {
+    justify-content: center;
+  }
+
+  .morro-speech-body {
+    justify-content: center;
+  }
+
+  .morro-speech-arrow {
+    display: none;
+  }
+
+  .spirit-companion-wrapper {
+    right: 5px;
+    top: 15px;
+  }
+
+  .pet-morro-cue-pill {
+    font-size: 0.72rem;
+    padding: 4px 12px;
+  }
+}
+
+/* ==========================================================================
+   VIEWPORT HEIGHT MEDIA QUERIES FOR COMPACT LAPTOPS (< 680px height)
+   Allows content to scale gracefully without shrinking into a tiny cluster
+   ========================================================================== */
+@media (min-width: 960px) and (max-height: 720px) {
+  .hero-section {
+    padding: clamp(0.75rem, 1.8vh, 1.5rem) 0 clamp(1rem, 2vh, 1.8rem);
+  }
+  .hero-content-col {
+    gap: 0.65rem;
+  }
+  .hero-headline {
+    font-size: clamp(2.2rem, 3.4vw, 3.2rem);
+  }
+  .hero-story-card {
+    padding: 0.75rem 1.1rem;
+    gap: 0.6rem;
+  }
+  .hero-description {
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+  .hero-morro-img {
+    max-height: 48vh;
+  }
+}
+

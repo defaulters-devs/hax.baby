@@ -1,0 +1,105 @@
+.floating-audio-anchor {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 50;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+@media (max-width: 600px) {
+  .floating-audio-anchor {
+    bottom: 14px;
+    right: 14px;
+    gap: 0.45rem;
+  }
+
+  .floating-audio-pill {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border-radius: 50%;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+  }
+
+  .floating-audio-pill .floating-audio-label,
+  .floating-audio-pill .floating-audio-dot {
+    display: none;
+  }
+}
+
+.floating-audio-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  user-select: none;
+}
+
+.floating-audio-pill:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+/* Active State: Warm Golden Celestial */
+.floating-audio-pill.state-active {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1.5px solid #F59E0B;
+  color: #B45309;
+}
+
+[data-theme="night"] .floating-audio-pill.state-active {
+  background: rgba(15, 23, 42, 0.88);
+  border-color: #F59E0B;
+  color: #FDE68A;
+}
+
+.floating-audio-pill.state-active .floating-audio-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+  animation: pulseGentle 1.8s infinite;
+}
+
+/* Muted State: Distinct Gentle Rose / Red */
+.floating-audio-pill.state-muted {
+  background: rgba(254, 242, 242, 0.95);
+  border: 1.5px solid #EF4444;
+  color: #DC2626;
+}
+
+[data-theme="night"] .floating-audio-pill.state-muted {
+  background: rgba(69, 10, 10, 0.88);
+  border-color: #F87171;
+  color: #FECACA;
+}
+
+.floating-audio-pill.state-muted .floating-audio-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #EF4444;
+  box-shadow: 0 0 6px #EF4444;
+}
+
+.floating-audio-icon {
+  display: flex;
+  align-items: center;
+}
+
+

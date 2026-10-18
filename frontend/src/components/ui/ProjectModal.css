@@ -1,0 +1,204 @@
+.project-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 15, 36, 0.7);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 1.5rem;
+  animation: fadeIn 0.25s ease;
+}
+
+.project-modal-card {
+  position: relative;
+  background: var(--bg-surface);
+  border: 2px solid var(--starlight-gold);
+  border-radius: var(--radius-lg);
+  max-width: 580px;
+  width: 100%;
+  padding: 2.25rem 2rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), var(--shadow-gold);
+  text-align: left;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.project-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  background: var(--bg-card-subtle);
+  border: var(--border-subtle);
+  transition: all var(--transition-fast);
+}
+
+.project-modal-close:hover {
+  color: var(--text-main);
+  background: var(--celestial-soft);
+  transform: rotate(90deg);
+}
+
+.modal-top-tag {
+  margin-bottom: 0.75rem;
+}
+
+.modal-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background: var(--starlight-gold-bg);
+  border: 1px solid var(--starlight-gold);
+  color: var(--starlight-gold);
+}
+
+.modal-header-section {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: var(--border-subtle);
+}
+
+.modal-icon-bubble {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card-subtle);
+  border: var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.modal-emoji {
+  font-size: 2rem;
+}
+
+.modal-header-section h3 {
+  font-size: 1.5rem;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.modal-subtitle {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--starlight-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
+}
+
+.modal-body-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.modal-info-block h5,
+.modal-features-list h5 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--royal-blue);
+  margin-bottom: 0.35rem;
+}
+
+.modal-info-block p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.modal-features-list ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.modal-features-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.9rem;
+  color: var(--text-main);
+}
+
+.feat-check {
+  color: #10B981;
+  flex-shrink: 0;
+}
+
+.modal-morro-quote {
+  background: var(--bg-card-subtle);
+  border-left: 3px solid var(--starlight-gold);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 0.85rem 1rem;
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+}
+
+.modal-morro-quote p {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+.modal-footer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: var(--border-subtle);
+}
+
+.modal-action-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, var(--royal-blue) 0%, var(--celestial-blue) 100%);
+  color: white;
+  font-size: 0.92rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(29, 78, 216, 0.3);
+  transition: all var(--transition-bounce);
+}
+
+.modal-action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(29, 78, 216, 0.4);
+}
+
+.modal-dismiss-btn {
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-pill);
+  background: var(--bg-card-subtle);
+  border: var(--border-subtle);
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.modal-dismiss-btn:hover {
+  color: var(--text-main);
+  background: var(--celestial-soft);
+}

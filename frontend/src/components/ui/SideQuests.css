@@ -1,0 +1,294 @@
+.side-quests-section {
+  padding: 4.5rem 0 3.5rem 0;
+  background: var(--bg-surface);
+  border-bottom: var(--border-subtle);
+  position: relative;
+}
+
+.side-quests-header {
+  text-align: left;
+  margin-bottom: 2rem;
+}
+
+.section-eyebrow {
+  display: block;
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #BE185D;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.side-quests-title {
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #831843;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+[data-theme="night"] .side-quests-title {
+  color: #FDA4AF;
+}
+
+.side-quests-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* 5 Cards Row */
+.quests-cards-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.15rem;
+}
+
+@media (min-width: 600px) {
+  .quests-cards-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 960px) {
+  .quests-cards-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .quests-cards-row {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.quest-card {
+  position: relative;
+  background: var(--bg-surface);
+  border: 1.5px solid #FBCFE8;
+  border-radius: 20px;
+  padding: 1.5rem 1.25rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
+  cursor: pointer;
+}
+
+[data-theme="night"] .quest-card {
+  background: rgba(30, 41, 59, 0.7);
+  border-color: rgba(244, 114, 182, 0.3);
+}
+
+.quest-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(190, 24, 93, 0.1);
+  border-color: #F472B6;
+}
+
+.quest-card.card-highlighted {
+  border-color: #E11D48;
+  box-shadow: 0 4px 18px rgba(225, 29, 72, 0.12);
+}
+
+.quest-card.card-focused {
+  border-color: #BE185D;
+  box-shadow: 0 6px 20px rgba(190, 24, 93, 0.2);
+}
+
+.quest-pts-pill {
+  display: inline-block;
+  align-self: flex-start;
+  background: #9D174D;
+  color: #FFFFFF;
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+[data-theme="night"] .quest-pts-pill {
+  background: #BE185D;
+}
+
+.quest-card-title {
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #831843;
+  margin-bottom: 0.45rem;
+  line-height: 1.3;
+}
+
+[data-theme="night"] .quest-card-title {
+  color: #FCE7F3;
+}
+
+.quest-card-description {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0 0 1rem 0;
+  flex: 1;
+}
+
+.quest-card-action {
+  padding-top: 0.75rem;
+  border-top: 1px dashed rgba(244, 114, 182, 0.25);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.quest-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background: #FDF2F8;
+  border: 1px solid #F472B6;
+  color: #BE185D;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.quest-action-btn:hover {
+  background: #FCE7F3;
+  transform: translateY(-2px);
+}
+
+[data-theme="night"] .quest-action-btn {
+  background: #831843;
+  color: #FDF2F8;
+}
+
+.quest-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--starlight-gold);
+}
+
+.odometer-action {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.sound-action-group {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.sound-test-chip {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-pill);
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.sound-test-chip:hover {
+  background: var(--celestial-soft);
+  color: var(--royal-blue);
+  transform: scale(1.04);
+}
+
+.mute-toggle-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-pill);
+  background: #FEF3C7;
+  border: 1px solid #F59E0B;
+  color: #B45309;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.mute-toggle-chip:hover {
+  background: #FDE68A;
+}
+
+.quest-micro-toast {
+  display: block;
+  font-size: 0.75rem;
+  color: #059669;
+  font-weight: 700;
+  margin-top: 0.35rem;
+  animation: fadeIn 0.2s ease;
+}
+
+.quest-chaos-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, #F43F5E 0%, #E11D48 100%);
+  color: #FFFFFF;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 2px 8px rgba(225, 29, 72, 0.3);
+}
+
+.quest-chaos-btn:hover {
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 12px rgba(225, 29, 72, 0.4);
+}
+
+.quest-chaos-btn.chaos-on {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+/* Chaos Mode Banner */
+.chaos-mode-banner {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background: repeating-linear-gradient(45deg, #FDE047, #FDE047 15px, #FBBF24 15px, #FBBF24 30px);
+  color: #78350F;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+  animation: pulseGentle 2s infinite ease-in-out;
+  overflow: hidden;
+}
+
+.chaos-marquee {
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+}
