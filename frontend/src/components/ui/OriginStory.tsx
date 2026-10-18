@@ -316,40 +316,47 @@ export const OriginStory: React.FC = () => {
             <Sparkles size={14} fill="#F59E0B" /> Origin of Morro Baby
           </div>
           <h2 className="origin-story-main-title">The Origin of Morro Baby</h2>
+          <p className="origin-story-subtitle">
+            From drifting clouds of hesitation to a joyful celestial guardian—discover how Morro was awakened.
+          </p>
+        </div>
           
-          {/* Beautiful Storybook Chronicle Proclamation Card */}
-          <div className="origin-storybook-chronicle-card">
-            <div className="chronicle-washi-tape">
-              <span>✦ THE CANONICAL LEGEND • CHAPTER I ✦</span>
+        {/* Beautiful Storybook Chronicle Proclamation Card */}
+        <div className="origin-storybook-chronicle-card">
+          <div className="chronicle-washi-tape">
+            <span>✦ THE CANONICAL LEGEND • CHAPTER I ✦</span>
+          </div>
+          
+          <div className="chronicle-inner-content">
+            <span className="chronicle-quote-mark open" aria-hidden="true">“</span>
+            <div className="chronicle-text-body">
+              <p className="chronicle-paragraph lead">
+                Long ago, people across the world became weary and kept delaying their work for tomorrow. Every time someone put off a task, a drifting signal of hesitation called <span className="lore-keyword-maybe">‘maybe’</span> was released into the sky.
+              </p>
+              <p className="chronicle-paragraph resolution">
+                This energy floated out into space, gathered together at a single cosmic point, and gave birth to <strong className="lore-keyword-morro">Morro Baby 👑</strong>. Today, Morro Baby catches that same ‘maybe’ energy, turns it into a positive reminder, and inspires people to get their work done.
+              </p>
             </div>
-            
-            <div className="chronicle-inner-content">
-              <span className="chronicle-quote-mark open" aria-hidden="true">“</span>
-              <div className="chronicle-text-body">
-                <p className="chronicle-paragraph lead">
-                  Long ago, people across the world became weary and kept delaying their work for tomorrow. Every time someone put off a task, a drifting signal of hesitation called <span className="lore-keyword-maybe">‘maybe’</span> was released into the sky.
-                </p>
-                <p className="chronicle-paragraph resolution">
-                  This energy floated out into space, gathered together at a single cosmic point, and gave birth to <strong className="lore-keyword-morro">Morro Baby 👑</strong>. Today, Morro Baby catches that same ‘maybe’ energy, turns it into a positive reminder, and inspires people to get their work done.
-                </p>
-              </div>
-              <span className="chronicle-quote-mark close" aria-hidden="true">”</span>
-            </div>
-
-            <div className="chronicle-card-footer">
-              <div className="chronicle-pill-row">
-                <span className="chronicle-pill pill-space">🌌 Space Born</span>
-                <span className="chronicle-pill pill-transmuter">🎒 Postponement Transmuter</span>
-                <span className="chronicle-pill pill-done">✨ Turn Maybe Into Done</span>
-              </div>
-              <span className="chronicle-seal-tag">📜 Official Track 2 Storybook Chronicle</span>
-            </div>
+            <span className="chronicle-quote-mark close" aria-hidden="true">”</span>
           </div>
 
-          {/* View Mode Switcher: Cosmic Timeline vs Cinematic Auto-Stage vs Continuous Scroll */}
-          <div className="story-view-mode-bar">
+          <div className="chronicle-card-footer">
+            <div className="chronicle-pill-row">
+              <span className="chronicle-pill pill-space">🌌 Space Born</span>
+              <span className="chronicle-pill pill-transmuter">🎒 Postponement Transmuter</span>
+              <span className="chronicle-pill pill-done">✨ Turn Maybe Into Done</span>
+            </div>
+            <span className="chronicle-seal-tag">📜 Official Track 2 Storybook Chronicle</span>
+          </div>
+        </div>
+
+        {/* View Mode Switcher: Cosmic Timeline vs Cinematic Auto-Stage vs Continuous Scroll */}
+        <div className="story-view-mode-bar-wrapper">
+          <div className="story-view-mode-bar" role="tablist" aria-label="Origin story display mode">
             <button
               type="button"
+              role="tab"
+              aria-selected={viewMode === 'timeline'}
               className={`story-mode-tab ${viewMode === 'timeline' ? 'active' : ''}`}
               onClick={() => {
                 sound.playPop();
@@ -363,6 +370,8 @@ export const OriginStory: React.FC = () => {
             </button>
             <button
               type="button"
+              role="tab"
+              aria-selected={viewMode === 'stage'}
               className={`story-mode-tab ${viewMode === 'stage' ? 'active' : ''}`}
               onClick={() => {
                 sound.playPop();
@@ -378,6 +387,8 @@ export const OriginStory: React.FC = () => {
             </button>
             <button
               type="button"
+              role="tab"
+              aria-selected={viewMode === 'scroll'}
               className={`story-mode-tab ${viewMode === 'scroll' ? 'active' : ''}`}
               onClick={() => {
                 sound.playPop();

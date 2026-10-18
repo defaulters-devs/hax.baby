@@ -63,51 +63,48 @@
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), 0 0 12px rgba(245, 158, 11, 0.3);
 }
 
-/* Individual Star Positioning & Floating Rhythms */
+/* Individual Star Positioning & Floating Rhythms (Hugging the subtle outer margins) */
 .star-friend-1 {
   top: 180px;
-  left: clamp(10px, 4vw, 55px);
+  left: clamp(6px, 1.2vw, 22px);
   animation: starFloatA 4.2s infinite ease-in-out;
 }
 
 .star-friend-2 {
   top: 480px;
-  right: clamp(10px, 3.5vw, 60px);
+  right: clamp(6px, 1.2vw, 22px);
   animation: starFloatB 5s infinite ease-in-out;
 }
 
 .star-friend-3 {
   top: 1100px;
-  left: clamp(12px, 3vw, 50px);
+  left: clamp(6px, 1.2vw, 22px);
   animation: starFloatC 4.6s infinite ease-in-out;
 }
 
 .star-friend-4 {
   top: 1750px;
-  right: clamp(12px, 4vw, 55px);
+  right: clamp(6px, 1.2vw, 22px);
   animation: starFloatA 5.4s infinite ease-in-out 0.8s;
 }
 
 .star-friend-5 {
   top: 2400px;
-  left: clamp(10px, 3.5vw, 60px);
+  left: clamp(6px, 1.2vw, 22px);
   animation: starFloatB 4.8s infinite ease-in-out 1.2s;
 }
 
 .star-friend-6 {
   top: 3100px;
-  right: clamp(15px, 4vw, 70px);
+  right: clamp(6px, 1.2vw, 22px);
   animation: starFloatC 5.2s infinite ease-in-out 0.5s;
 }
 
-/* Hide or tuck edge stars on small mobile screens to prevent clutter */
-@media (max-width: 768px) {
-  .star-friend-1 { display: none; }
-  .star-friend-3 { display: none; }
-  .star-friend-5 { display: none; }
-  .star-friend-2 { top: 320px; right: 8px; transform: scale(0.85); }
-  .star-friend-4 { top: 1600px; right: 8px; transform: scale(0.85); }
-  .star-friend-6 { top: 2900px; right: 8px; transform: scale(0.85); }
+/* Hide ambient edge stars on screens <= 1080px so they never crowd content */
+@media (max-width: 1080px) {
+  .cute-ambient-stars-container {
+    display: none !important;
+  }
 }
 
 /* Float Animations with gentle rotation */
@@ -396,4 +393,14 @@
   font-size: 0.85rem;
   color: #F59E0B;
   animation: twinkleStar 1.8s infinite;
+}
+
+@media (max-width: 680px) {
+  .card-cute-star-pin {
+    top: 6px;
+    right: 12px;
+    transform: none;
+    font-size: 0.68rem;
+    padding: 0.15rem 0.5rem;
+  }
 }

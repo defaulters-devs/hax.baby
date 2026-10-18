@@ -24,7 +24,8 @@
   justify-content: space-between;
   height: 78px;
   width: 100%;
-  padding: 0 clamp(1.25rem, 4vw, 5rem);
+  max-width: 1720px;
+  padding: 0 clamp(1rem, 2.5vw, 2.5rem);
   margin: 0 auto;
 }
 

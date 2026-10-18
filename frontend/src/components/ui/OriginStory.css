@@ -11,7 +11,7 @@
    -------------------------------------------------------------------------- */
 .origin-storybook-chronicle-card {
   position: relative;
-  max-width: 900px;
+  max-width: min(100%, 1240px);
   margin: 1.5rem auto 1.75rem;
   padding: 2.25rem 2.25rem 1.65rem;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(254, 249, 235, 0.95) 100%);
@@ -226,16 +226,40 @@
 /* --------------------------------------------------------------------------
    View Mode Switcher
    -------------------------------------------------------------------------- */
+.story-view-mode-bar-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  margin: 1.25rem auto 2rem;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+}
+
 .story-view-mode-bar {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.4rem;
   padding: 0.4rem;
   background: rgba(255, 255, 255, 0.9);
   border: 1.5px solid rgba(245, 158, 11, 0.35);
   border-radius: var(--radius-pill);
-  margin-top: 1.25rem;
   box-shadow: 0 4px 14px rgba(245, 158, 11, 0.1);
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .story-view-mode-bar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 480px;
+    border-radius: 20px;
+    padding: 0.45rem;
+    gap: 0.45rem;
+  }
 }
 
 [data-theme="night"] .story-view-mode-bar {
@@ -259,6 +283,19 @@
   cursor: pointer;
   transition: all var(--transition-bounce);
   position: relative;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .story-mode-tab {
+    width: 100%;
+    justify-content: center;
+    padding: 0.65rem 0.9rem;
+    border-radius: 14px;
+    font-size: 0.85rem;
+    white-space: normal;
+    text-align: center;
+  }
 }
 
 .story-mode-tab:hover {
@@ -555,6 +592,21 @@
 @media (max-width: 640px) {
   .controls-right-hint {
     display: none;
+  }
+  .stage-controls-ribbon {
+    padding: 0.6rem 0.75rem;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  .controls-left-group {
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+  .controls-right-group {
+    justify-content: center;
+    width: 100%;
   }
 }
 
@@ -1035,6 +1087,12 @@
     transparent 16px
   );
   z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .timeline-spine-track {
+    display: none;
+  }
 }
 
 @media (min-width: 860px) {
@@ -1726,38 +1784,63 @@
 
 @media (max-width: 680px) {
   .cosmic-timeline-container {
-    padding: 2.25rem 1rem 1.5rem;
+    padding: 2.25rem 0.85rem 1.5rem;
     border-radius: 20px;
   }
   .cosmic-timeline-inner {
-    gap: 1.25rem;
+    gap: 1rem;
   }
   .cosmic-rail-track {
-    width: 28px;
+    width: 24px;
+  }
+  .cosmic-rail-sparky {
+    display: none;
+  }
+  .cosmic-story-steps-list {
+    width: calc(100% - 30px);
   }
   .cosmic-story-step-item {
-    gap: 0.85rem;
-    padding: 0.9rem 0.85rem;
+    gap: 0.75rem;
+    padding: 0.85rem 0.75rem;
+  }
+  .cosmic-story-step-item:hover,
+  .cosmic-story-step-item.step-active {
+    transform: none !important;
+  }
+  .cosmic-step-header-row {
+    flex-wrap: wrap;
+    gap: 0.35rem;
   }
   .cosmic-step-icon-box {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
   }
   .cosmic-step-icon {
-    font-size: 1.6rem;
+    font-size: 1.45rem;
   }
   .cosmic-step-title {
-    font-size: 1.05rem;
+    font-size: 1.02rem;
   }
   .cosmic-step-narrative {
-    font-size: 0.86rem;
+    font-size: 0.85rem;
   }
   .sparky-sprite-body {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
   }
   .cosmic-timeline-footer {
-    padding: 1rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.85rem;
+    padding: 1rem 0.85rem;
+  }
+  .footer-lore-summary {
+    text-align: center;
+    font-size: 0.86rem;
+  }
+  .cosmic-ritual-cta-btn {
+    width: 100%;
+    justify-content: center;
   }
 }
 
