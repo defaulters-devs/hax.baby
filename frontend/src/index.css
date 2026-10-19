@@ -6,6 +6,29 @@
   padding: 0;
 }
 
+/* Custom Cute Starlight Text Selection Colors */
+::selection {
+  background-color: #fde68a !important;
+  color: #0f172a !important;
+}
+
+::-moz-selection {
+  background-color: #fde68a !important;
+  color: #0f172a !important;
+}
+
+[data-theme="night"] ::selection,
+[data-theme="night"]::selection {
+  background-color: #38bdf8 !important;
+  color: #f8fafc !important;
+}
+
+[data-theme="night"] ::-moz-selection,
+[data-theme="night"]::-moz-selection {
+  background-color: #38bdf8 !important;
+  color: #f8fafc !important;
+}
+
 :root {
   --font-display: 'Outfit', 'Fredoka', 'Quicksand', sans-serif;
   --font-heading: 'Outfit', 'Quicksand', 'Plus Jakarta Sans', sans-serif;
